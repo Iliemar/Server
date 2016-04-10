@@ -1,0 +1,106 @@
+package Grupp1.Newton.FlightBookingSystem.models;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+@XmlRootElement
+@Entity
+@Table(name = "Booking")
+public class Booking implements Serializable
+{
+	@Id
+	@GeneratedValue
+	private int id;
+	
+	@Column(name = "startDestination")
+	private String startDestination;
+	
+	@Column(name = "endDestination")
+	private String endDestination;
+	
+	@Column(name = "date")
+	private Date date;
+	
+	@Column(name = "ticketPrice")
+	private int price;
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
+	
+	public Booking(String startDestination, String endDestination, int price)
+	{
+		this.startDestination = startDestination;
+		this.endDestination = endDestination;
+		this.price = price;
+		this.date = new Date();
+	}
+	
+	public Booking()
+	{
+		
+	}
+	public int getId()
+	{
+		return id;
+	}
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	public String getStartDestination()
+	{
+		return startDestination;
+	}
+	public void setStartDestination(String startDestination)
+	{
+		this.startDestination = startDestination;
+	}
+	public String getEndDestination()
+	{
+		return endDestination;
+	}
+	public void setEndDestination(String endDestination)
+	{
+		this.endDestination = endDestination;
+	}
+	public Date getDate()
+	{
+		return date;
+	}
+	public void setDate(Date date)
+	{
+		this.date = date;
+	}
+	public int getPrice()
+	{
+		return price;
+	}
+	public void setPrice(int price)
+	{
+		this.price = price;
+	}
+	public Collection<Traveler> getTravelerList()
+	{
+		return travelerList;
+	}
+	public void setTravelerList(Collection<Traveler> travelerList)
+	{
+		this.travelerList = travelerList;
+	}
+}
