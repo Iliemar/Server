@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane1" prefHeight="482.0" prefWidth="975.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Scene1Controller">
+   <children>
+      <HBox fx:id="hbox" layoutX="108.0" layoutY="40.0" prefHeight="55.0" prefWidth="760.0" spacing="20.0" stylesheets="@application.css">
+         <children>
+            <Label prefHeight="51.0" prefWidth="12.0" />
+            <Button fx:id="bookBtn" layoutX="82.0" layoutY="203.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="100.0" text="Book" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="changeBookingBtn" layoutX="102.0" layoutY="133.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="210.0" text="Change Booking" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="myTripsBtn" layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="145.0" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelFlightBtn" layoutX="191.0" layoutY="261.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="174.0" text="Cancel Flight" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Label prefHeight="50.0" prefWidth="18.0" />
+            <AnchorPane prefHeight="46.0" prefWidth="31.0">
+               <children>
+                  <Button fx:id="exitBtn" layoutY="15.0" mnemonicParsing="false" onAction="#exit" prefHeight="30.0" prefWidth="31.0" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Eras Bold ITC" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label prefHeight="50.0" prefWidth="18.0" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="anchorPane2" layoutX="163.0" layoutY="130.0" prefHeight="258.0" prefWidth="650.0" stylesheets="@application.css">
+         <children>
+            <GridPane layoutX="15.0" prefHeight="55.0" prefWidth="620.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="133.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="39.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="0.0" prefWidth="161.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="5.0" prefWidth="101.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="373.0" minWidth="10.0" prefWidth="153.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="28.666671752929688" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.333328247070312" minHeight="10.0" prefHeight="31.333328247070312" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" From:" wrappingWidth="48.6796875">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="To:" wrappingWidth="31.958984375" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="fromComboBox" prefHeight="25.0" prefWidth="130.0" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="toComboBox" prefHeight="25.0" prefWidth="130.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Ticket Class:" wrappingWidth="97.68603515625" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="tripTypeComboBox" prefHeight="25.0" prefWidth="148.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="One way/Round trip:" wrappingWidth="151.13656616210938" GridPane.columnIndex="5">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <ComboBox fx:id="ticketClassComboBox" prefHeight="25.0" prefWidth="146.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <HBox fx:id="calendar1Box" layoutX="15.0" layoutY="63.0" prefHeight="38.0" prefWidth="130.0" />
+            <HBox fx:id="calendar2Box" layoutX="185.0" layoutY="63.0" prefHeight="38.0" prefWidth="130.0" />
+            <GridPane layoutX="14.0" layoutY="107.0" prefHeight="105.0" prefWidth="184.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="97.33332824707031" minWidth="10.0" prefWidth="97.33332824707031" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="106.66665649414062" minWidth="10.0" prefWidth="34.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.3333282470703" minWidth="10.0" prefWidth="23.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.3333282470703" minWidth="10.0" prefWidth="36.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Adults:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="minusAdultBtn" mnemonicParsing="false" onAction="#passengersActionEvent" prefHeight="24.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <Group>
+                           <children>
+                              <Text layoutX="108.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="currentAdultsLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="plusAdultBtn" mnemonicParsing="false" onAction="#passengersActionEvent" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <Group>
+                           <children>
+                              <Text layoutX="151.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </graphic>
+                  </Button>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Kids:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="minusKidBtn" mnemonicParsing="false" onAction="#passengersActionEvent" prefHeight="24.0" prefWidth="25.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <Group>
+                           <children>
+                              <Text layoutX="108.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="currentKidLabel" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="plusKidBtn" mnemonicParsing="false" onAction="#passengersActionEvent" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <graphic>
+                        <Group>
+                           <children>
+                              <Text layoutX="151.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </graphic>
+                  </Button>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Passengers:">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </GridPane>
+            <Button fx:id="searchBtn" layoutX="561.0" layoutY="215.0" mnemonicParsing="false" onAction="#searchActionEvent" prefHeight="27.0" prefWidth="75.0" text="Search">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="passengerErrorLabel" layoutX="14.0" layoutY="228.0" prefHeight="17.0" prefWidth="208.0" textFill="RED" />
+            <Label fx:id="errorDestinationLabel" layoutX="353.0" layoutY="74.0" prefHeight="17.0" prefWidth="208.0" textFill="RED" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

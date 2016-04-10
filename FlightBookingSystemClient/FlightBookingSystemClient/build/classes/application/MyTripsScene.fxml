@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane1" prefHeight="482.0" prefWidth="975.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MyTripsSceneController">
+   <children>
+      <HBox fx:id="hbox" layoutX="108.0" layoutY="39.0" prefHeight="55.0" prefWidth="760.0" spacing="20.0" stylesheets="@application.css">
+         <children>
+            <Label prefHeight="51.0" prefWidth="12.0" />
+            <Button fx:id="bookBtn" layoutX="82.0" layoutY="203.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="100.0" text="Book" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="changeBookingBtn" layoutX="102.0" layoutY="133.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="210.0" text="Change Booking" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="myTripsBtn" layoutX="39.0" layoutY="285.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="145.0" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelFlightBtn" layoutX="191.0" layoutY="261.0" mnemonicParsing="false" onAction="#changeSceneActionEvent" prefHeight="48.0" prefWidth="174.0" text="Cancel Flight" textFill="WHITE">
+               <font>
+                  <Font name="Eras Bold ITC" size="20.0" />
+               </font>
+            </Button>
+            <Label prefHeight="50.0" prefWidth="18.0" />
+            <AnchorPane prefHeight="42.0" prefWidth="44.0">
+               <children>
+                  <Button fx:id="exitBtn" layoutX="-1.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="9.0" prefWidth="14.0" text="X" textFill="WHITE">
+                     <font>
+                        <Font name="Eras Bold ITC" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <Label prefHeight="50.0" prefWidth="18.0" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="anchorPane2" layoutX="163.0" layoutY="129.0" prefHeight="298.0" prefWidth="650.0" stylesheets="@application.css">
+         <children>
+            <ListView fx:id="listView" layoutX="100.0" layoutY="9.0" prefHeight="280.0" prefWidth="450.0" />
+            <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Previous" />
+            <Button fx:id="nextBtn" layoutX="567.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Continue" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
