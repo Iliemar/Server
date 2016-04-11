@@ -61,7 +61,7 @@ public class Scene2Controller implements Initializable {
     void nextActionEvent(ActionEvent event) throws IOException {
       // when the user click continue 
         JOptionPane.showMessageDialog(null, listView.getSelectionModel().getSelectedItem());
-        Parent p = FXMLLoader.load(getClass().getResource("Scene3FXML.fxml"));
+        Parent p = FXMLLoader.load(getClass().getResource("/application/Scene3FXML.fxml"));
         Scene s = new Scene(p);
         Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

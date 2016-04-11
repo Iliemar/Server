@@ -14,9 +14,9 @@ public class Booking
 	
 	public Booking(String startDestination, String endDestination)
 	{
-		this.startDestination = startDestination;
-		this.endDestination = endDestination;
-		this.date = new Date();
+		this.setStartDestination(startDestination);
+		this.setEndDestination(endDestination);
+		this.setDate(new Date());
 	}
 	public Booking()
 	{
@@ -24,6 +24,8 @@ public class Booking
 	}
 	public Booking(int i, String value, String value2, int adult, int kids, int handicaped, String string, int j) {
 		// TODO Auto-generated constructor stub
+		
+		
 	}
 	public void setBooking(String updatedBooking) {
 		this.setBooking(updatedBooking);
@@ -37,6 +39,36 @@ public class Booking
 	public Object getToDestination() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public String getStartDestination() {
+		return startDestination;
+	}
+	public void setStartDestination(String startDestination) {
+		this.startDestination = startDestination;
+	}
+	public String getEndDestination() {
+		return endDestination;
+	}
+	public void setEndDestination(String endDestination) {
+		this.endDestination = endDestination;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public Collection<Traveler> getTravelerList() {
+		return travelerList;
+	}
+	public void setTravelerList(Collection<Traveler> travelerList) {
+		this.travelerList = travelerList;
 	}
 	
 		

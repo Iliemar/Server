@@ -49,11 +49,16 @@
             <Label prefHeight="50.0" prefWidth="18.0" />
          </children>
       </HBox>
-      <AnchorPane fx:id="anchorPane2" layoutX="163.0" layoutY="129.0" prefHeight="298.0" prefWidth="650.0" stylesheets="@application.css">
+      <AnchorPane fx:id="anchorPane2" layoutX="111.0" layoutY="129.0" prefHeight="298.0" prefWidth="753.0" stylesheets="@application.css">
          <children>
-            <ListView fx:id="listView" layoutX="100.0" layoutY="9.0" prefHeight="280.0" prefWidth="450.0" />
             <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Previous" />
-            <Button fx:id="nextBtn" layoutX="567.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Continue" />
+            <Button fx:id="nextBtn" layoutX="673.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Continue" />
+            <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="253.0" prefWidth="760.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
    </children>
 </AnchorPane>
