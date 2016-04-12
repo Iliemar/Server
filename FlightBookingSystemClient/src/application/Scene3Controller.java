@@ -200,10 +200,10 @@ public class Scene3Controller implements Initializable {
 		} else if (pnrFld.getText().equals("")) {
 			errorLabel.setText("Please fill in all the fields.");
 			personalnumberLabel.setStyle("-fx-text-fill:RED;");
-		}else if (pnrFld.getLength() != 10){
+		} else if (pnrFld.getLength() != 10) {
 			errorLabel.setText("Please fill in YY/MM/DD-XXXX");
 			personalnumberLabel.setStyle("-fx-text-fill:RED;");
-			
+
 		} else {
 			// Calculates extra cost items
 
@@ -309,37 +309,35 @@ public class Scene3Controller implements Initializable {
 		firstnameLabel.setStyle("-fx-text-fill:#3f3c3c;");
 		lastnameLabel.setStyle("-fx-text-fill:#3f3c3c;");
 		personalnumberLabel.setStyle("-fx-text-fill:#3f3c3c;");
-		
-		if(Scene1Controller.ticketClass.equals(BookingType.FIRSTCLASS))
-		  {
-		   checkBoxHandicap.setSelected(true);
-		   checkBoxWifi.setSelected(true);
-		   checkBoxFood.setSelected(true);
-		   checkBoxExtraSpace.setSelected(true);
-		   checkBoxPlug.setSelected(true);
-		   
-		   checkBoxHandicap.setDisable(true);
-		   checkBoxWifi.setDisable(true);
-		   checkBoxFood.setDisable(true);
-		   checkBoxExtraSpace.setDisable(true);
-		   checkBoxPlug.setDisable(true);
-		  }
-		  else if(Scene1Controller.ticketClass.equals(BookingType.BUSINESS))
-		  {
-		   checkBoxWifi.setSelected(true);
-		   checkBoxPlug.setSelected(true);
-		   
-		   checkBoxWifi.setDisable(true);
-		   checkBoxPlug.setDisable(true);
-		  }
-		  else if(Scene1Controller.ticketClass.equals(BookingType.ECONOMY))
-		  {
-		   
-		  }
-		
 
-		
-		
+		if (Scene1Controller.ticketClass.equals("" + BookingType.FIRSTCLASS)) {
+
+			// Auto Check
+			checkBoxWifi.setSelected(true);
+			checkBoxFood.setSelected(true);
+			checkBoxExtraSpace.setSelected(true);
+			checkBoxPlug.setSelected(true);
+			
+			// Lock CheckBox
+			checkBoxWifi.setDisable(true);
+			checkBoxFood.setDisable(true);
+			checkBoxExtraSpace.setDisable(true);
+			checkBoxPlug.setDisable(true);
+		}
+
+		else if (Scene1Controller.ticketClass.equals("" + BookingType.BUSINESS)) {
+            
+			// Auto Check
+			checkBoxWifi.setSelected(true);
+			checkBoxPlug.setSelected(true);
+			
+			// Lock CheckBox
+			checkBoxWifi.setDisable(true);
+			checkBoxPlug.setDisable(true);
+			
+		} else if (Scene1Controller.ticketClass.equals("" + BookingType.ECONOMY)) {
+
+		}
+
 	}
-
 }

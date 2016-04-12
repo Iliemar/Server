@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
 public class Scene1Controller implements Initializable {
 
 	static String ticketClass;
-	
+
 	@FXML
 	private Button searchBtn;
 
@@ -152,7 +152,7 @@ public class Scene1Controller implements Initializable {
 				errorDestinationLabel.setText("Please fill in destinations");
 			} else {
 				// create trip
-				b1 = new Booking(1, fromComboBox.getValue(), toComboBox.getValue(), adult, kids,0, "", 0);
+				b1 = new Booking(1, fromComboBox.getValue(), toComboBox.getValue(), adult, kids, 0, "", 0);
 
 				Parent p = FXMLLoader.load(getClass().getResource("Scene2FXML.fxml"));
 				Scene s = new Scene(p);
@@ -221,20 +221,23 @@ public class Scene1Controller implements Initializable {
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		bookBtn.setDisable(true);
+		ticketClass = "" + BookingType.ECONOMY; // Start value
+
 		ticketClassComboBox.setOnAction(event -> {
-			   if(ticketClassComboBox.getValue().equals("Economy"))
-			   {
-			    ticketClass.equals(BookingType.ECONOMY);
-			   }
-			   else if(ticketClassComboBox.getValue().equals("Business class"))
-			   {
-			    ticketClass.equals(BookingType.BUSINESS);
-			   }
-			   else if(ticketClassComboBox.getValue().equals("First class"))
-			   {
-			    ticketClass.equals(BookingType.FIRSTCLASS);
-			   }
-			  });
+			if (ticketClassComboBox.getValue().equals("Economy")) {
+				// ticketClass.equals(BookingType.ECONOMY);
+				ticketClass = "" + BookingType.ECONOMY;
+
+			} else if (ticketClassComboBox.getValue().equals("Business class")) {
+				// ticketClass.equals(BookingType.BUSINESS);
+				ticketClass = "" + BookingType.BUSINESS;
+
+			} else if (ticketClassComboBox.getValue().equals("First class")) {
+				// ticketClass.equals(BookingType.FIRSTCLASS);
+				ticketClass = "" + BookingType.FIRSTCLASS;
+
+			}
+		});
 
 		// Default label for x adults,kids,handicaped
 		currentAdultsLabel.setText(String.valueOf(adult));
@@ -253,7 +256,7 @@ public class Scene1Controller implements Initializable {
 
 		// create Calendar2 for HomeTrip
 		DatePicker datePicker2 = new DatePicker();
-		datePicker2.setVisible(false); // Hide  at start
+		datePicker2.setVisible(false); // Hide at start
 		datePicker2.setValue(LocalDate.now());
 		datePicker2.setOnAction(event -> {
 			LocalDate date = datePicker2.getValue();
@@ -278,14 +281,14 @@ public class Scene1Controller implements Initializable {
 		tripTypeComboBox.getItems().add("One-way trip");
 		tripTypeComboBox.getItems().add("Return trip");
 		tripTypeComboBox.setValue("One-way trip"); // default trip
-		 tripTypeComboBox.setOnAction(event -> {
-	        	if (tripTypeComboBox.getValue().equals("One-way trip")) {
-	        		datePicker2.setVisible(false);
-	        	} else {
-	        		datePicker2.setVisible(true);
-	        	}
-	        });
-		
+		tripTypeComboBox.setOnAction(event -> {
+			if (tripTypeComboBox.getValue().equals("One-way trip")) {
+				datePicker2.setVisible(false);
+			} else {
+				datePicker2.setVisible(true);
+			}
+		});
+
 		// comboBox for TicketClass - Add diffrent classes
 		ticketClassComboBox.getItems().add("Economy");
 		ticketClassComboBox.getItems().add("Business class");
