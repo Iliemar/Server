@@ -25,12 +25,13 @@ import org.hibernate.annotations.Type;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Traveler implements Serializable
 {
-	public Traveler(String firstName, String lastName, int age, long persNR)
+	public Traveler(String firstName, String lastName, int age, long persNR, String handicap)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.persNR = persNR;
+		this.handicap = handicap;
 	}
 	@Id
 	@GeneratedValue
@@ -50,7 +51,7 @@ public abstract class Traveler implements Serializable
 	
 	@Type(type="yes_no")
 	@Column(name = "disablity")
-	private boolean izHandicapped;
+	private String handicap;
 	
 	@Type(type="yes_no")
 	@Column(name = "wifi")
@@ -136,15 +137,13 @@ public abstract class Traveler implements Serializable
 	{
 		this.id = id;
 	}
-
-	public boolean isIzHandicapped()
-	{
-		return izHandicapped;
+	
+	public String getHandicap() {
+		return handicap;
 	}
 
-	public void setIzHandicapped(boolean izHandicapped)
-	{
-		this.izHandicapped = izHandicapped;
+	public void setHandicap(String handicap) {
+		this.handicap = handicap;
 	}
 
 	public boolean isWifi()
