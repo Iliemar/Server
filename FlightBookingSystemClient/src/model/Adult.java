@@ -11,10 +11,11 @@ public class Adult extends Traveler implements Serializable
 	private String lastName;
 	private int age;
 	private long persNR;
+	private String handicap;
 	
-	public Adult(String firstName, String lastName, int age, long persNR)
+	public Adult(String firstName, String lastName, int age, long persNR, String handicap)
 	{
-		super(firstName, lastName, age, persNR);
+		super(firstName, lastName, age, persNR, handicap);
 	}
 
 	public Adult()

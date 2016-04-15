@@ -5,9 +5,9 @@ import java.io.Serializable;
 
 public class Child extends Traveler implements Serializable
 {
-	public Child(String firstName, String lastName, int age, long persNR)
+	public Child(String firstName, String lastName, int age, long persNR, String handicap)
 	{
-		super(firstName, lastName, age, persNR);
+		super(firstName, lastName, age, persNR, handicap);
 	}
 	public Child()
 	{
