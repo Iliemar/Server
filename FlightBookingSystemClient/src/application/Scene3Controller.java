@@ -64,7 +64,10 @@ public class Scene3Controller implements Initializable {
 	private Button bookBtn;
 
 	@FXML
-	private CheckBox checkBoxHandicap;
+	private TextField handicapFld;
+	
+	@FXML
+	private Label handicapLabel;
 
 	@FXML
 	private Button changeBookingBtn;
@@ -115,7 +118,6 @@ public class Scene3Controller implements Initializable {
 	private double WifiPrice = 45.00;
 
 	// CheckBox values with boolean
-	private boolean isHandicap;
 	private boolean wifi;
 	private boolean food;
 	private boolean extraSpace;
@@ -225,7 +227,7 @@ public class Scene3Controller implements Initializable {
 
 			JOptionPane.showMessageDialog(null,
 					firstnameFld.getText() + " " + lastnameFld.getText() + "\n" + "PNR: " + pnrFld.getText() + "\n"
-							+ "Handicap: " + isHandicap + "\n" + "Wifi: " + wifi + "\n" + "Food on board: " + food
+							+ "Handicap: " + handicapFld.getText() + "\n" + "Wifi: " + wifi + "\n" + "Food on board: " + food
 							+ "\n" + "Extra space: " + extraSpace + "\n" + "Plug 220v: " + Plug + "\n" + "Extra cost: "
 							+ ExtraCost);
 			// ______________________________________________
@@ -238,7 +240,7 @@ public class Scene3Controller implements Initializable {
 			firstnameFld.clear();
 			lastnameFld.clear();
 			pnrFld.clear();
-			checkBoxHandicap.setSelected(false);
+			handicapFld.clear();
 			checkBoxWifi.setSelected(false);
 			checkBoxFood.setSelected(false);
 			checkBoxExtraSpace.setSelected(false);
@@ -249,13 +251,6 @@ public class Scene3Controller implements Initializable {
 
 	@FXML
 	void CheckBoxEvent(ActionEvent event) {
-		// Controll if Handicap
-		if (checkBoxHandicap.isSelected()) {
-			isHandicap = true;
-		} else {
-			isHandicap = false;
-		}
-
 		// Controll wifi
 		if (checkBoxWifi.isSelected()) {
 			wifi = true;
