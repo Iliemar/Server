@@ -49,7 +49,6 @@ public abstract class Traveler implements Serializable
 	@Column(name = "persNR")
 	private long persNR;
 	
-	@Type(type="yes_no")
 	@Column(name = "disablity")
 	private String handicap;
 	
