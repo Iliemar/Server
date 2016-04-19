@@ -152,6 +152,10 @@ public class Scene1Controller implements Initializable {
 
 			} else if (fromComboBox.getValue().equals("Please Select Destination")) {
 				errorDestinationLabel.setText("Please fill in destinations");
+
+			} else if (fromComboBox.getValue().equals(toComboBox.getValue())) {
+				errorDestinationLabel.setText("Error, please choose two unique locations");
+
 			} else {
 				// create trip
 				b1 = new Booking(1, fromComboBox.getValue(), toComboBox.getValue(), adult, kids, 0, "", 0);
@@ -316,8 +320,10 @@ public class Scene1Controller implements Initializable {
 		String selectedEndDestination = toComboBox.getValue();
 
 		toComboBox.setOnAction(event -> {
-			if (selectedStartDestination.equals(selectedEndDestination)) {
-				JOptionPane.showMessageDialog(null, "Error, please choose two unique locations");
+			if (fromComboBox.getValue().equals(toComboBox.getValue())) {
+				errorDestinationLabel.setText("Error, please choose two unique locations");
+			} else {
+				errorDestinationLabel.setText("");
 			}
 		});
 
@@ -333,7 +339,7 @@ public class Scene1Controller implements Initializable {
 			}
 		});
 
-		// comboBox for TicketClass - Add diffrent classes
+		/// comboBox for TicketClass - Add diffrent classes
 		ticketClassComboBox.getItems().add("Economy");
 		ticketClassComboBox.getItems().add("Business class");
 		ticketClassComboBox.getItems().add("First class");
