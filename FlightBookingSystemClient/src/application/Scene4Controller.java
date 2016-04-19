@@ -1,6 +1,5 @@
 package application;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -16,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -26,9 +26,6 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 public class Scene4Controller implements Initializable {
-
-	@FXML
-	private TextField monthFld;
 
 	@FXML
 	private Button exitBtn;
@@ -46,16 +43,19 @@ public class Scene4Controller implements Initializable {
 	private AnchorPane anchorPane1;
 
 	@FXML
+	private TextField cardHolderFld;
+
+	@FXML
 	private AnchorPane anchorPane2;
 
 	@FXML
 	private TextField creditCardNumberFld;
 
 	@FXML
-	private HBox hbox;
+	private ComboBox<Integer> comboBoxMonth;
 
 	@FXML
-	private TextField yearFld;
+	private HBox hbox;
 
 	@FXML
 	private HBox hBox1;
@@ -67,13 +67,13 @@ public class Scene4Controller implements Initializable {
 	private TextField cscFld;
 
 	@FXML
+	private ComboBox<Integer> comboBoxYear;
+
+	@FXML
 	private Button cancelFlightBtn;
 
 	@FXML
 	private Label errorLabel;
-
-	@FXML
-	private TextField cardHolderFld;
 
 	@FXML
 	private Button nextBtn;
@@ -146,14 +146,6 @@ public class Scene4Controller implements Initializable {
 			errorLabel.setText("Please fill in Card number");
 		}
 
-		if (yearFld.getText().equals("")) {
-			errorLabel.setText("Please fill in year");
-		}
-
-		if (monthFld.getText().equals("")) {
-			errorLabel.setText("Please fill in month");
-		}
-
 		if (cscFld.getText().equals("")) {
 			errorLabel.setText("Please fill in CSC number");
 		}
@@ -162,28 +154,10 @@ public class Scene4Controller implements Initializable {
 
 			cardHolder = cardHolderFld.getText();
 			CardNumber = Long.parseLong(creditCardNumberFld.getText());
-			monthNumber = Integer.parseInt(monthFld.getText());
-			yearNumber = Integer.parseInt(yearFld.getText());
 			cscNumber = Integer.parseInt(cscFld.getText());
 
 			if (CardNumber <= 99999999) {
 				errorLabel.setText("Please fill in correct Card number");
-				return;
-
-			} else if (monthNumber >= 13) {
-				errorLabel.setText("Please fill in correct month");
-				return;
-
-			} else if (monthNumber <= 0) {
-				errorLabel.setText("Please fill in correct month");
-				return;
-
-			} else if (yearNumber >= 30) {
-				errorLabel.setText("Please fill in correct year");
-				return;
-
-			} else if (yearNumber <= 15) {
-				errorLabel.setText("Please fill in correct year");
 				return;
 
 			} else if (cscNumber >= 1000) {
@@ -195,13 +169,13 @@ public class Scene4Controller implements Initializable {
 				return;
 
 			} else {
-				JOptionPane.showMessageDialog(null, "CardHolder: " + cardHolder + "\n"+
-			"CardNumber: " + CardNumber + "\n" + "Card Info: " + monthNumber + "/" + yearNumber + " CSC: " + cscNumber );
+				JOptionPane.showMessageDialog(null, "CardHolder: " + cardHolder + "\n" + "CardNumber: " + CardNumber
+						+ "\n" + "Card Info: " + monthNumber + "/" + yearNumber + " CSC: " + cscNumber);
 			}
 
 		} catch (NumberFormatException FormatTmp) {
-			
-			errorLabel.setText("Please fill in correct information"); 
+
+			errorLabel.setText("Please fill in correct information");
 		}
 
 	}
@@ -224,9 +198,33 @@ public class Scene4Controller implements Initializable {
 		// hide labels and field
 		errorLabel.setText("");
 		creditCardNumberFld.clear();
-		yearFld.clear();
-		monthFld.clear();
 		cardHolderFld.clear();
+
+		// ComboBox Year
+		comboBoxYear.getItems().add(2016);
+		comboBoxYear.getItems().add(2017);
+		comboBoxYear.getItems().add(2018);
+		comboBoxYear.getItems().add(2019);
+		comboBoxYear.getItems().add(2020);
+		comboBoxYear.getItems().add(2021);
+		comboBoxYear.getItems().add(2022);
+		comboBoxYear.getItems().add(2023);
+		comboBoxYear.setValue(2016); // Default
+
+		// Combobox Month
+		comboBoxMonth.getItems().add(1);
+		comboBoxMonth.getItems().add(2);
+		comboBoxMonth.getItems().add(3);
+		comboBoxMonth.getItems().add(4);
+		comboBoxMonth.getItems().add(5);
+		comboBoxMonth.getItems().add(6);
+		comboBoxMonth.getItems().add(7);
+		comboBoxMonth.getItems().add(8);
+		comboBoxMonth.getItems().add(9);
+		comboBoxMonth.getItems().add(10);
+		comboBoxMonth.getItems().add(11);
+		comboBoxMonth.getItems().add(12);
+		comboBoxMonth.setValue(01); // Default
 
 	}
 }

@@ -57,7 +57,7 @@
          <children>
             <Button fx:id="nextBtn" layoutX="558.0" layoutY="259.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="26.0" prefWidth="78.0" text="Continue" />
             <Button fx:id="backBtn" layoutX="14.0" layoutY="259.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="26.0" prefWidth="78.0" text="Previous" />
-            <Label fx:id="errorLabel" layoutX="209.0" layoutY="47.0" textFill="#c60101">
+            <Label fx:id="errorLabel" contentDisplay="CENTER" layoutX="209.0" layoutY="47.0" textFill="#c60101">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -93,24 +93,16 @@
                   </Text>
                </children>
             </GridPane>
-            <HBox fx:id="hBox1" layoutX="222.0" layoutY="187.0" spacing="5.0">
+            <HBox fx:id="hBox1" layoutX="196.0" layoutY="180.0" spacing="5.0">
                <children>
-                  <TextField fx:id="monthFld" layoutX="154.0" layoutY="211.0" prefHeight="25.0" prefWidth="39.0" promptText="MM">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </TextField>
+                  <ComboBox fx:id="comboBoxMonth" prefHeight="25.0" prefWidth="57.0" />
                   <Text layoutX="195.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="yearFld" layoutX="227.0" layoutY="211.0" prefHeight="25.0" prefWidth="36.0" promptText=" YY">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </TextField>
-                  <Text layoutX="271.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CSC:">
+                  <ComboBox fx:id="comboBoxYear" prefHeight="25.0" prefWidth="68.0" />
+                  <Text layoutX="271.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CSC/CVV:">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
