@@ -49,11 +49,21 @@
             <Label prefHeight="50.0" prefWidth="18.0" />
          </children>
       </HBox>
-      <AnchorPane fx:id="anchorPane2" layoutX="163.0" layoutY="129.0" prefHeight="298.0" prefWidth="650.0" stylesheets="@application.css">
+      <AnchorPane fx:id="anchorPane2" layoutX="111.0" layoutY="129.0" prefHeight="298.0" prefWidth="753.0" stylesheets="@application.css">
          <children>
-            <ListView fx:id="listView" layoutX="100.0" layoutY="9.0" prefHeight="280.0" prefWidth="450.0" />
-            <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Previous" />
-            <Button fx:id="nextBtn" layoutX="567.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Continue" />
+            <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Back" />
+            <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="177.0" prefWidth="760.0">
+              <columns>
+                <TableColumn fx:id="Company" onEditCommit="#handleEditActionCompany" prefWidth="103.0" text="Company" />
+                <TableColumn fx:id="From" onEditCommit="#handleEditActionFrom" prefWidth="108.0" text="From" />
+                  <TableColumn fx:id="To" onEditCommit="#handleEditActionTo" prefWidth="99.0" text="To" />
+                  <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="193.0" text="Date" />
+                  <TableColumn fx:id="Price" onEditCommit="#handleEditActionPrice" prefWidth="145.0" text="Price" />
+                  <TableColumn fx:id="Direct" prefWidth="111.0" text="Direct" />
+              </columns>
+            </TableView>
+            <TextField fx:id="text" layoutX="105.0" layoutY="245.0" onAction="#textAction" promptText="Write your ordnummer" />
+            <Label fx:id="label" layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
