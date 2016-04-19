@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import model.Booking;
-
-import javax.swing.JOptionPane;
+import model.Destination;
 
 public class Scene1Controller implements Initializable {
 
@@ -267,15 +269,57 @@ public class Scene1Controller implements Initializable {
 		calendar1Box.getChildren().add(datePicker);
 		calendar2Box.getChildren().add(datePicker2);
 
+		// Creating Destination
+		Destination malmo = new Destination("Malmo", 5);
+		Destination oslo = new Destination("Oslo", 3);
+		Destination stockholm = new Destination("Stockholm", 4);
+		Destination copenhagen = new Destination("Copenhagen", 6);
+		Destination amsterdam = new Destination("Amsterdam", 9);
+		Destination london = new Destination("London", 12);
+		Destination paris = new Destination("Paris", 16);
+		Destination zurich = new Destination("Zurich", 17);
+		Destination belgrad = new Destination("Belgrad", 27);
+		Destination rom = new Destination("Rom", 23);
+		Destination madrid = new Destination("Madrid", 30);
+		Destination lissabon = new Destination("Lissabon", 35);
+
 		// comboBox for Enter origing city
-		fromComboBox.getItems().add("Malmö");
-		fromComboBox.getItems().add("Köpenhamn");
-		fromComboBox.setValue("Please Select Destination");
+		fromComboBox.getItems().add(malmo.getDestination());
+		fromComboBox.getItems().add(copenhagen.getDestination());
+		fromComboBox.getItems().add(london.getDestination());
+		fromComboBox.getItems().add(amsterdam.getDestination());
+		fromComboBox.getItems().add(madrid.getDestination());
+		fromComboBox.getItems().add(paris.getDestination());
+		fromComboBox.getItems().add(stockholm.getDestination());
+		fromComboBox.getItems().add(zurich.getDestination());
+		fromComboBox.getItems().add(belgrad.getDestination());
+		fromComboBox.getItems().add(rom.getDestination());
+		fromComboBox.getItems().add(lissabon.getDestination());
+		fromComboBox.getItems().add(oslo.getDestination());
+		fromComboBox.setValue("Please select start destination");
+		String selectedStartDestination = fromComboBox.getValue();
 
 		// comboBox for Enter Destination city
-		toComboBox.getItems().add("Oslo");
-		toComboBox.getItems().add("London");
-		toComboBox.setValue("Please Select Destination");
+		toComboBox.getItems().add(malmo.getDestination());
+		toComboBox.getItems().add(copenhagen.getDestination());
+		toComboBox.getItems().add(london.getDestination());
+		toComboBox.getItems().add(amsterdam.getDestination());
+		toComboBox.getItems().add(madrid.getDestination());
+		toComboBox.getItems().add(paris.getDestination());
+		toComboBox.getItems().add(stockholm.getDestination());
+		toComboBox.getItems().add(zurich.getDestination());
+		toComboBox.getItems().add(belgrad.getDestination());
+		toComboBox.getItems().add(rom.getDestination());
+		toComboBox.getItems().add(lissabon.getDestination());
+		toComboBox.getItems().add(oslo.getDestination());
+		toComboBox.setValue("Please select end destination");
+		String selectedEndDestination = toComboBox.getValue();
+
+		toComboBox.setOnAction(event -> {
+			if (selectedStartDestination.equals(selectedEndDestination)) {
+				JOptionPane.showMessageDialog(null, "Error, please choose two unique locations");
+			}
+		});
 
 		// comboBox for Trip Type - add diffrent types of trip
 		tripTypeComboBox.getItems().add("One-way trip");
