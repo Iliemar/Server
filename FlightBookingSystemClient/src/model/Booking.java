@@ -6,22 +6,29 @@ import java.util.Date;
 
 public class Booking
 {
+	private String Company;
+	public String getCompany() {
+		return Company;
+	}
+
+	public void setCompany(String company) {
+		Company = company;
+	}
 	private String startDestination;
 	private String endDestination;
 	private Date date;
-	private int price;
+	private String price;
 	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
 	
-	public Booking(String startDestination, String endDestination)
+	public Booking(String company,String startDestination, String endDestination,String i)
 	{
+		this.setCompany(company);
 		this.setStartDestination(startDestination);
 		this.setEndDestination(endDestination);
 		this.setDate(new Date());
+		this.setPrice(i);
 	}
-	public Booking()
-	{
-		
-	}
+	
 	public Booking(int i, String value, String value2, int adult, int kids, int handicaped, String string, int j) {
 		// TODO Auto-generated constructor stub
 		
@@ -58,10 +65,10 @@ public class Booking
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public Collection<Traveler> getTravelerList() {

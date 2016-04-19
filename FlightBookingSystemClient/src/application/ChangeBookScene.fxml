@@ -51,14 +51,20 @@
       </HBox>
       <AnchorPane fx:id="anchorPane2" layoutX="111.0" layoutY="129.0" prefHeight="298.0" prefWidth="753.0" stylesheets="@application.css">
          <children>
-            <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Previous" />
-            <Button fx:id="nextBtn" layoutX="673.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Continue" />
-            <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="253.0" prefWidth="760.0">
+            <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Back" />
+            <Button fx:id="nextBtn" layoutX="673.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Change " />
+            <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="177.0" prefWidth="760.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="Company" onEditCommit="#handleEditActionCompany" prefWidth="177.0" text="Company" />
+                <TableColumn fx:id="From" onEditCommit="#handleEditActionFrom" prefWidth="106.0" text="From" />
+                  <TableColumn fx:id="To" onEditCommit="#handleEditActionTo" prefWidth="129.0" text="To" />
+                  <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="128.0" text="Date" />
+                  <TableColumn fx:id="Price" onEditCommit="#handleEditActionPrice" prefWidth="219.0" text="Price" />
               </columns>
             </TableView>
+            <TextField fx:id="Ordnummer" layoutX="105.0" layoutY="245.0" promptText="Write your ordnummer" />
+            <HBox fx:id="calendarBox" layoutX="348.0" layoutY="242.0" prefHeight="48.0" prefWidth="312.0" />
+            <Label fx:id="warning" layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" text="Label" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
