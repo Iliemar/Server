@@ -211,22 +211,35 @@ public class Scene3Controller implements Initializable {
 			personalnumberLabel.setStyle("-fx-text-fill:RED;");
 
 		} else {
-			// Calculates extra cost items
 
-			if (wifi == true) {
-				ExtraCost = WifiPrice += ExtraCost;
+			// Calculates extra cost items for economy class
+			if (Scene1Controller.ticketClass.equals("" + BookingType.ECONOMY)) {
+				if (wifi == true) {
+					ExtraCost = WifiPrice += ExtraCost;
+				}
+
+				if (food == true) {
+					ExtraCost = FoodPrice += ExtraCost;
+				}
+
+				if (extraSpace == true) {
+					ExtraCost = SpacePrice += ExtraCost;
+				}
+
+				if (Plug == true) {
+					ExtraCost = PlugPrice += ExtraCost;
+				}
 			}
 
-			if (food == true) {
-				ExtraCost = FoodPrice += ExtraCost;
-			}
+			// Calculates extra cost items for Business
+			if (Scene1Controller.ticketClass.equals("" + BookingType.BUSINESS)) {
+				if (food == true) {
+					ExtraCost = FoodPrice += ExtraCost;
+				}
 
-			if (extraSpace == true) {
-				ExtraCost = SpacePrice += ExtraCost;
-			}
-
-			if (Plug == true) {
-				ExtraCost = PlugPrice += ExtraCost;
+				if (extraSpace == true) {
+					ExtraCost = SpacePrice += ExtraCost;
+				}
 			}
 
 			JOptionPane.showMessageDialog(null,
@@ -335,6 +348,12 @@ public class Scene3Controller implements Initializable {
 			checkBoxFood.setDisable(true);
 			checkBoxExtraSpace.setDisable(true);
 			checkBoxPlug.setDisable(true);
+
+			// Change the boleans
+			wifi = true;
+			food = true;
+			extraSpace = true;
+			Plug = true;
 		}
 
 		else if (Scene1Controller.ticketClass.equals("" + BookingType.BUSINESS)) {
@@ -346,6 +365,10 @@ public class Scene3Controller implements Initializable {
 			// Lock CheckBox
 			checkBoxWifi.setDisable(true);
 			checkBoxPlug.setDisable(true);
+
+			// Change the boleans
+			wifi = true;
+			Plug = true;
 
 		} else if (Scene1Controller.ticketClass.equals("" + BookingType.ECONOMY)) {
 

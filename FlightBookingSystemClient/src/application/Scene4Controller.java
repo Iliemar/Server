@@ -155,17 +155,19 @@ public class Scene4Controller implements Initializable {
 			cardHolder = cardHolderFld.getText();
 			CardNumber = Long.parseLong(creditCardNumberFld.getText());
 			cscNumber = Integer.parseInt(cscFld.getText());
+			yearNumber = comboBoxYear.getValue();
+			monthNumber = comboBoxMonth.getValue();
 
 			if (CardNumber <= 99999999) {
 				errorLabel.setText("Please fill in correct Card number");
 				return;
 
 			} else if (cscNumber >= 1000) {
-				errorLabel.setText("Please fill in correct CSC number");
+				errorLabel.setText("Please fill in correct CSC/CVV number");
 				return;
 
 			} else if (cscNumber <= 99) {
-				errorLabel.setText("Please fill correct CSC number");
+				errorLabel.setText("Please fill in correct CSC/CVV number");
 				return;
 
 			} else {
