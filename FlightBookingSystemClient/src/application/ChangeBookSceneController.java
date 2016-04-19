@@ -261,8 +261,8 @@ public class ChangeBookSceneController implements Initializable {
 	        Price.setEditable(true);
 	        tableView.setEditable(true);
 	        Direct.setEditable(false);
-	    /*	     }
-		    	});
+	    	    
+		    	
 	        
 	     // Create First Calendar
 	     			DatePicker datePicker = new DatePicker();
@@ -272,6 +272,7 @@ public class ChangeBookSceneController implements Initializable {
 	     				// JOptionPane.showMessageDialog(null, date);
 
 	     			});
-	     			calendarBox.getChildren().add(datePicker);*/
+	     			calendarBox.getChildren().add(datePicker);
+	    
 }
 }

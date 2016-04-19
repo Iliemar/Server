@@ -65,7 +65,7 @@
             </TableView>
             <TextField fx:id="text" layoutX="105.0" layoutY="245.0" onAction="#textAction" promptText="Write your ordnummer" />
             <HBox fx:id="calendarBox" layoutX="348.0" layoutY="242.0" prefHeight="48.0" prefWidth="312.0" />
-            <Label fx:id="label" layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" />
+            <Label layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
