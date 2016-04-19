@@ -43,7 +43,7 @@ public class MyTripsSceneController implements Initializable {
 		 	private Booking myBooking;
 		    private Boolean access= false;
 		    
-		    @FXML
+		   /* @FXML
 		    private void textAction(ActionEvent event) {
 		        if(access){
 		            label.setText("Correct name :)");
@@ -52,7 +52,7 @@ public class MyTripsSceneController implements Initializable {
 		            label.setText("Wrong,try again ;)");
 		        }
 		        
-		    }
+		    }*/
 		 
 	    @FXML
 	    private HBox hbox;
