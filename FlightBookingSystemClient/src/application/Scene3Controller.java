@@ -16,7 +16,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import javax.swing.JOptionPane;
 
 public class Scene3Controller implements Initializable {
@@ -65,7 +68,7 @@ public class Scene3Controller implements Initializable {
 
 	@FXML
 	private TextField handicapFld;
-	
+
 	@FXML
 	private Label handicapLabel;
 
@@ -111,6 +114,7 @@ public class Scene3Controller implements Initializable {
 	public static double ExtraCost = 0; // all extra in cash
 	private static int currentPersonCounter = 1;
 
+	private static int TotalTravelers;
 	// price for extra items
 	private double FoodPrice = 120.00;
 	private double PlugPrice = 50.00;
@@ -186,7 +190,7 @@ public class Scene3Controller implements Initializable {
 	}
 
 	@FXML
-	void nextActionEvent(ActionEvent event) {
+	void nextActionEvent(ActionEvent event) throws IOException {
 		// Label Basic Fill.
 		firstnameLabel.setStyle("-fx-text-fill:#3f3c3c;");
 		lastnameLabel.setStyle("-fx-text-fill:#3f3c3c;");
@@ -227,9 +231,9 @@ public class Scene3Controller implements Initializable {
 
 			JOptionPane.showMessageDialog(null,
 					firstnameFld.getText() + " " + lastnameFld.getText() + "\n" + "PNR: " + pnrFld.getText() + "\n"
-							+ "Handicap: " + handicapFld.getText() + "\n" + "Wifi: " + wifi + "\n" + "Food on board: " + food
-							+ "\n" + "Extra space: " + extraSpace + "\n" + "Plug 220v: " + Plug + "\n" + "Extra cost: "
-							+ ExtraCost);
+							+ "Handicap: " + handicapFld.getText() + "\n" + "Wifi: " + wifi + "\n" + "Food on board: "
+							+ food + "\n" + "Extra space: " + extraSpace + "\n" + "Plug 220v: " + Plug + "\n"
+							+ "Extra cost: " + ExtraCost);
 			// ______________________________________________
 			// After the Save !!
 
@@ -245,6 +249,19 @@ public class Scene3Controller implements Initializable {
 			checkBoxFood.setSelected(false);
 			checkBoxExtraSpace.setSelected(false);
 			checkBoxPlug.setSelected(false);
+
+			// Controll if all persons are filld in
+			if (currentPersonCounter >= TotalTravelers) {
+				Parent p = FXMLLoader.load(getClass().getResource("Scene4.fxml"));
+				Scene s = new Scene(p);
+				s.setFill(Color.TRANSPARENT);
+				
+				Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+				stg.setScene(s);
+				stg.show();
+
+			}
 
 		}
 	}
@@ -286,7 +303,7 @@ public class Scene3Controller implements Initializable {
 		// Get xAduls xKids and makes them together
 		int xAdult = (Scene1Controller.adult);
 		int xKids = (Scene1Controller.kids);
-		int TotalTravelers = xAdult += xKids;
+		TotalTravelers = xAdult += xKids;
 
 		// labels
 		errorLabel.setText("");
@@ -312,7 +329,7 @@ public class Scene3Controller implements Initializable {
 			checkBoxFood.setSelected(true);
 			checkBoxExtraSpace.setSelected(true);
 			checkBoxPlug.setSelected(true);
-			
+
 			// Lock CheckBox
 			checkBoxWifi.setDisable(true);
 			checkBoxFood.setDisable(true);
@@ -321,15 +338,15 @@ public class Scene3Controller implements Initializable {
 		}
 
 		else if (Scene1Controller.ticketClass.equals("" + BookingType.BUSINESS)) {
-            
+
 			// Auto Check
 			checkBoxWifi.setSelected(true);
 			checkBoxPlug.setSelected(true);
-			
+
 			// Lock CheckBox
 			checkBoxWifi.setDisable(true);
 			checkBoxPlug.setDisable(true);
-			
+
 		} else if (Scene1Controller.ticketClass.equals("" + BookingType.ECONOMY)) {
 
 		}
