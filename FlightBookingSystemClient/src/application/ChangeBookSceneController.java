@@ -42,8 +42,8 @@ public class ChangeBookSceneController implements Initializable {
 		 @FXML
 		    private TextField text;
 		 
-		 	private Booking myBooking;
-		    private Boolean access= false;
+		 	//private Booking myBooking;
+		    private Boolean access= true;
 		    
 		    @FXML
 		    private void textAction(ActionEvent event) {
@@ -98,9 +98,9 @@ public class ChangeBookSceneController implements Initializable {
 	    
 	   
 	    public ObservableList<Booking>ChangeBookingList=FXCollections.observableArrayList(
-	            new Booking("Comp1","Malmö","Oslo","99","45","yes"),
-	            new Booking("Comp2","Malmö","Chicago"," 444","45","no"),
-	            new Booking ("Comp3","Malmö","Bucharest", "88","45","yes") );
+	            new Booking("Comp1","Malmö","Oslo","99","yes"),
+	            new Booking("Comp2","Malmö","Chicago"," 444","no"),
+	            new Booking ("Comp3","Malmö","Bucharest", "88","yes") );
 	    
 	    
 	    
@@ -228,13 +228,13 @@ public class ChangeBookSceneController implements Initializable {
 		
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb) {
-	    	
+	    /*	
 	    	myBooking=new Booking(null, null, null, null, null,"yes");
 	    	 text.textProperty().addListener(new ChangeListener<Object>(){
 	    		    
 	    	     @Override
 	    	     public void changed(ObservableValue observable,Object oldVal,Object newVal){
-	    	    access=text.getText().equals(myBooking.getId());
+	    	    access=text.getText().equals(myBooking.getId());*/
 	    	
 	    	
 	        
@@ -261,7 +261,7 @@ public class ChangeBookSceneController implements Initializable {
 	        Price.setEditable(true);
 	        tableView.setEditable(true);
 	        Direct.setEditable(false);
-	    	     }
+	    /*	     }
 		    	});
 	        
 	     // Create First Calendar
@@ -272,6 +272,6 @@ public class ChangeBookSceneController implements Initializable {
 	     				// JOptionPane.showMessageDialog(null, date);
 
 	     			});
-	     			calendarBox.getChildren().add(datePicker);
+	     			calendarBox.getChildren().add(datePicker);*/
 }
 }

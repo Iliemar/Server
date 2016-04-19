@@ -214,13 +214,13 @@ public class MyTripsSceneController implements Initializable {
 	        Direct.setCellFactory(TextFieldTableCell.forTableColumn());
 	
 
-	        Company.setEditable(false);
-	        From.setEditable(false);
-	        To.setEditable(false);
-	        Date.setEditable(false); 
-	        Price.setEditable(false);
-	        tableView.setEditable(false);
-	        Direct.setEditable(false);
+	        Company.setEditable(true);
+	        From.setEditable(true);
+	        To.setEditable(true);
+	        Date.setEditable(true); 
+	        Price.setEditable(true);
+	        tableView.setEditable(true);
+	        Direct.setEditable(true);
 	       
 	     }     
 }
