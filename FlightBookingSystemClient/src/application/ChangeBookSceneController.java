@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,6 +25,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn.CellEditEvent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -36,8 +39,25 @@ import model.FlightCompany;
 public class ChangeBookSceneController implements Initializable {
 		@FXML
 		private HBox calendarBox;
-		 //@FXML
-		   // private Label warning;
+		 @FXML
+		    private Label label;
+		 @FXML
+		    private TextField text;
+		 
+		 	private Booking myBooking;
+		    private Boolean access= false;
+		    
+		    @FXML
+		    private void textAction(ActionEvent event) {
+		        if(access){
+		            label.setText("Correct name :)");
+		        }
+		        else{
+		            label.setText("Wrong,try again ;)");
+		        }
+		        
+		    }
+		 
 	    @FXML
 	    private HBox hbox;
 	   
@@ -79,9 +99,9 @@ public class ChangeBookSceneController implements Initializable {
 	    
 	   
 	    public ObservableList<Booking>ChangeBookingList=FXCollections.observableArrayList(
-	            new Booking("Comp1","Malmö","Oslo","99"),
-	            new Booking("Comp2","Malmö","Chicago"," 444"),
-	            new Booking ("Comp3","Malmö","Bucharest", "88") );
+	            new Booking("Comp1","Malmö","Oslo","99","45"),
+	            new Booking("Comp2","Malmö","Chicago"," 444","45"),
+	            new Booking ("Comp3","Malmö","Bucharest", "88","45") );
 	    
 	    
 	    
@@ -201,6 +221,14 @@ public class ChangeBookSceneController implements Initializable {
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb) {
 	    	
+	    	myBooking=new Booking(null, null, null, null, null);
+	    	 text.textProperty().addListener(new ChangeListener<Object>(){
+	    		    
+	    	     @Override
+	    	     public void changed(ObservableValue observable,Object oldVal,Object newVal){
+	    	    access=text.getText().equals(myBooking.getId());
+	    	
+	    	
 	        
 	       Company.setCellValueFactory(new PropertyValueFactory<Booking,String>("company"));  
 	        From.setCellValueFactory(new PropertyValueFactory<Booking,String>("from"));
@@ -222,6 +250,8 @@ public class ChangeBookSceneController implements Initializable {
 	        Date.setEditable(true); 
 	        Price.setEditable(true);
 	        tableView.setEditable(true);
+	    	     }
+		    	});
 	        
 	     // Create First Calendar
 	     			DatePicker datePicker = new DatePicker();
