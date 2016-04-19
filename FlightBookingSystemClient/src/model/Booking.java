@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty;
 
 public class Booking
 {
-	private final StringProperty id=new SimpleStringProperty("Marius");;
+	private StringProperty id=new SimpleStringProperty("Marius");;
 	private String Company;
 	public String getCompany() {
 		return Company;
@@ -23,9 +23,10 @@ public class Booking
 	private Date date;
 	private String price;
 	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
+	private String direct;
 	
 	
-	public Booking(String company,String startDestination, String endDestination,String i,String id )
+	public Booking(String company,String startDestination, String endDestination,String i,String id,String d )
 	{
 		this.setCompany(company);
 		this.setStartDestination(startDestination);
@@ -33,13 +34,26 @@ public class Booking
 		this.setDate(new Date());
 		this.setPrice(i);
 		this.setId(id);
+		this.setDirect(d);
 	
 	}
 	
 	 
 	        
 	    
-	    public Booking(int i, String value, String value2, int adult, int kids, int j, String string, int k) {
+	    public String getDirect() {
+		return direct;
+	}
+
+	public void setDirect(String direct) {
+		this.direct = direct;
+	}
+
+	public void setId(StringProperty id) {
+		this.id = id;
+	}
+
+		public Booking(int i, String value, String value2, int adult, int kids, int j, String string, int k) {
 		// TODO Auto-generated constructor stub
 	}
 

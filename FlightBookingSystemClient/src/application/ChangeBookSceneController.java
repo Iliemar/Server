@@ -72,6 +72,7 @@ public class ChangeBookSceneController implements Initializable {
 	    @FXML private TableColumn<Booking,String>To;
 	    @FXML private TableColumn<Booking,java.util.Date>Date;
 	    @FXML private TableColumn<Booking,String>Price;
+	    @FXML private TableColumn<Booking,String>Direct;
 
 	    @FXML
 	    private Button backBtn;
@@ -99,9 +100,9 @@ public class ChangeBookSceneController implements Initializable {
 	    
 	   
 	    public ObservableList<Booking>ChangeBookingList=FXCollections.observableArrayList(
-	            new Booking("Comp1","Malmö","Oslo","99","45"),
-	            new Booking("Comp2","Malmö","Chicago"," 444","45"),
-	            new Booking ("Comp3","Malmö","Bucharest", "88","45") );
+	            new Booking("Comp1","Malmö","Oslo","99","45","yes"),
+	            new Booking("Comp2","Malmö","Chicago"," 444","45","no"),
+	            new Booking ("Comp3","Malmö","Bucharest", "88","45","yes") );
 	    
 	    
 	    
@@ -213,15 +214,24 @@ public class ChangeBookSceneController implements Initializable {
 	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDate(t.getNewValue());
 	    }
 
-		 @FXML
-		    private void handleEditActionPrice(CellEditEvent<Booking, String> t) 
-		    {
-		        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPrice(t.getNewValue());
-		    }
+		@FXML
+	    private void handleEditActionPrice(CellEditEvent<Booking, String> t) 
+	    {
+			((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPrice(t.getNewValue());
+		}
+		@FXML
+	    private void handleEditActionDirect(CellEditEvent<Booking, String> t) 
+	    {
+			((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDirect(t.getNewValue());
+		}
+		
+		
+		
+		
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb) {
 	    	
-	    	myBooking=new Booking(null, null, null, null, null);
+	    	myBooking=new Booking(null, null, null, null, null,"yes");
 	    	 text.textProperty().addListener(new ChangeListener<Object>(){
 	    		    
 	    	     @Override
@@ -235,6 +245,7 @@ public class ChangeBookSceneController implements Initializable {
 	        To.setCellValueFactory(new PropertyValueFactory<Booking,String>("to"));
 	        Date.setCellValueFactory(new PropertyValueFactory<Booking,java.util.Date>("date"));
 	        Price.setCellValueFactory(new PropertyValueFactory<Booking,String>("price"));
+	        Direct.setCellValueFactory(new PropertyValueFactory<Booking,String>("direct"));
 	       
 	        tableView.setItems(ChangeBookingList);
 	        
@@ -243,6 +254,7 @@ public class ChangeBookSceneController implements Initializable {
 	        To.setCellFactory(TextFieldTableCell.forTableColumn());
 	       // Date.setCellValueFactory(TextFieldTableCell.forTableColumn());
 	        Price.setCellFactory(TextFieldTableCell.forTableColumn());
+	        Direct.setCellFactory(TextFieldTableCell.forTableColumn());
 
 	        Company.setEditable(true);
 	        From.setEditable(true);
@@ -250,6 +262,7 @@ public class ChangeBookSceneController implements Initializable {
 	        Date.setEditable(true); 
 	        Price.setEditable(true);
 	        tableView.setEditable(true);
+	        Direct.setEditable(false);
 	    	     }
 		    	});
 	        
