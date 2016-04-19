@@ -129,9 +129,9 @@ public class Scene2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // creating dummy data FlightCompany
-        FlightCompany SAS = new FlightCompany(1, "SAS", Scene1Controller.b1.getFromDestination(), Scene1Controller.b1.getToDestination(), 4500);
-        FlightCompany WizzAir = new FlightCompany(1, "WizzAir", Scene1Controller.b1.getFromDestination(), Scene1Controller.b1.getToDestination(), 2500);
-        FlightCompany TurkishAirlines = new FlightCompany(1, "TurkishAirLines", Scene1Controller.b1.getFromDestination(), Scene1Controller.b1.getToDestination(), 3500);
+        FlightCompany SAS = new FlightCompany(1, "SAS", 4500);
+        FlightCompany WizzAir = new FlightCompany(1, "WizzAir", 2500);
+        FlightCompany TurkishAirlines = new FlightCompany(1, "TurkishAirLines", 3500);
 
         FlightCompanyList.add(SAS);
         FlightCompanyList.add(WizzAir);

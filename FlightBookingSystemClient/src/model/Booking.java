@@ -9,7 +9,7 @@ import javafx.beans.property.StringProperty;
 
 public class Booking
 {
-	private StringProperty id=new SimpleStringProperty("Marius");;
+	
 	private String Company;
 	public String getCompany() {
 		return Company;
@@ -26,15 +26,14 @@ public class Booking
 	private String direct;
 	
 	
-	public Booking(String company,String startDestination, String endDestination,String i,String id,String d )
+	public Booking(String company,String startDestination, String endDestination,String p,String dir )
 	{
 		this.setCompany(company);
 		this.setStartDestination(startDestination);
 		this.setEndDestination(endDestination);
 		this.setDate(new Date());
-		this.setPrice(i);
-		this.setId(id);
-		this.setDirect(d);
+		this.setPrice(p);
+		this.setDirect(dir);
 	
 	}
 	
@@ -43,75 +42,60 @@ public class Booking
 	    
 	    public String getDirect() {
 		return direct;
-	}
+	    }
 
-	public void setDirect(String direct) {
+	    public void setDirect(String direct) {
 		this.direct = direct;
-	}
-
-	public void setId(StringProperty id) {
-		this.id = id;
-	}
-
-		public Booking(int i, String value, String value2, int adult, int kids, int j, String string, int k) {
-		// TODO Auto-generated constructor stub
-	}
-
-		public final String getId(){
-	        return id.get();
 	    }
-	    public final void setId(String id2){
-	        id.setValue(id2);
-	    }
-	    public StringProperty idProperty(){
-	        return id;
-	    }
+
 	
-
+		public Booking(int i, String value, String value2, int adult, int kids, int j, String string, int k) {
+			// TODO Auto-generated constructor stub
+		}
 	
 		
 
-	public void setBooking(String updatedBooking) {
+		public void setBooking(String updatedBooking) {
 		this.setBooking(updatedBooking);
 		
 	
-	}
-	public Object getFromDestination() {
+		}
+		public Object getFromDestination() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	public Object getToDestination() {
+		}
+		public Object getToDestination() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	public String getStartDestination() {
+		}
+		public String getStartDestination() {
 		return startDestination;
-	}
-	public void setStartDestination(String startDestination) {
+		}
+		public void setStartDestination(String startDestination) {
 		this.startDestination = startDestination;
-	}
-	public String getEndDestination() {
+		}
+		public String getEndDestination() {
 		return endDestination;
-	}
-	public void setEndDestination(String endDestination) {
+		}
+		public void setEndDestination(String endDestination) {
 		this.endDestination = endDestination;
-	}
-	public Date getDate() {
+		}
+		public Date getDate() {
 		return date;
-	}
-	public void setDate(Date date) {
+		}
+		public void setDate(Date date) {
 		this.date = date;
-	}
-	public String getPrice() {
+		}
+		public String getPrice() {
 		return price;
-	}
-	public void setPrice(String price) {
+		}
+		public void setPrice(String price) {
 		this.price = price;
-	}
-	public Collection<Traveler> getTravelerList() {
+		}
+		public Collection<Traveler> getTravelerList() {
 		return travelerList;
-	}
-	public void setTravelerList(Collection<Traveler> travelerList) {
+		}
+		public void setTravelerList(Collection<Traveler> travelerList) {
 		this.travelerList = travelerList;
 	}
 

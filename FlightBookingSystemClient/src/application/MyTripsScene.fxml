@@ -59,10 +59,10 @@
                   <TableColumn fx:id="To" onEditCommit="#handleEditActionTo" prefWidth="99.0" text="To" />
                   <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="193.0" text="Date" />
                   <TableColumn fx:id="Price" onEditCommit="#handleEditActionPrice" prefWidth="145.0" text="Price" />
-                  <TableColumn fx:id="Direct" onEditCommit="#handleEditActionDirect" prefWidth="111.0" text="Direct" />
+                  <TableColumn fx:id="Direct" onEditCommit="#handleEditActionDirect" prefWidth="109.0" text="Direct" />
               </columns>
             </TableView>
-            <TextField fx:id="text" layoutX="105.0" layoutY="245.0" onAction="#textAction" promptText="Write your ordnummer" />
+            <TextField layoutX="105.0" layoutY="245.0" promptText="Write your ordnummer" />
             <Label fx:id="label" layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" />
          </children></AnchorPane>
    </children>
