@@ -110,7 +110,7 @@ public class Scene6Controller implements Initializable {
 	void backActionEvent(ActionEvent event) throws IOException {
 		if (event.getSource() == backBtn) {
 			// when user clicks back
-			Parent p = FXMLLoader.load(getClass().getResource("Scene3FXML.fxml"));
+			Parent p = FXMLLoader.load(getClass().getResource("Scene5FXML.fxml"));
 			Scene s = new Scene(p);
 			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
