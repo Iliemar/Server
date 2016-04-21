@@ -150,6 +150,9 @@ public class Scene1Controller implements Initializable {
 		fromDestination = fromComboBox.getValue();
 		toDestination = toComboBox.getValue();
 		
+		System.out.println(fromDestination);
+		System.out.println(toDestination);
+		
 		if (event.getSource() == searchBtn) {
 			errorDestinationLabel.setText(""); // hide error label
 
@@ -163,9 +166,6 @@ public class Scene1Controller implements Initializable {
 				errorDestinationLabel.setText("Error, please choose two unique locations");
 
 			} else {
-				// create trip
-				b1 = new Booking(1, fromComboBox.getValue(), toComboBox.getValue(), adult, kids, 0, "", 0);
-
 				Parent p = FXMLLoader.load(getClass().getResource("Scene2FXML.fxml"));
 				Scene s = new Scene(p);
 				Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();

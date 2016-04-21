@@ -9,65 +9,29 @@ import javafx.beans.property.StringProperty;
 
 public class Booking
 {
-	
-	private String Company;
-	public String getCompany() {
-		return Company;
-	}
-
-	public void setCompany(String company) {
-		Company = company;
-	}
 	private String startDestination;
 	private String endDestination;
 	private Date date;
-	private String price;
+	private int price;
+	private int id;
 	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
-	private String direct;
+	private FlightCompany flightCompany;
 	
 	
-	public Booking(String company,String startDestination, String endDestination,String p,String dir )
+	public Booking(FlightCompany company, String startDestination, String endDestination, int price)
 	{
-		this.setCompany(company);
+		this.setFlightCompany(company);
 		this.setStartDestination(startDestination);
 		this.setEndDestination(endDestination);
+		this.price = price;
 		this.setDate(new Date());
-		this.setPrice(p);
-		this.setDirect(dir);
-	
 	}
 	
-	 
-	        
-	    
-	    public String getDirect() {
-		return direct;
-	    }
-
-	    public void setDirect(String direct) {
-		this.direct = direct;
-	    }
-
-	
-		public Booking(int i, String value, String value2, int adult, int kids, int j, String string, int k) {
-			// TODO Auto-generated constructor stub
-		}
-	
+	public Booking()
+	{
 		
+	}
 
-		public void setBooking(String updatedBooking) {
-		this.setBooking(updatedBooking);
-		
-	
-		}
-		public Object getFromDestination() {
-		// TODO Auto-generated method stub
-		return null;
-		}
-		public Object getToDestination() {
-		// TODO Auto-generated method stub
-		return null;
-		}
 		public String getStartDestination() {
 		return startDestination;
 		}
@@ -86,10 +50,10 @@ public class Booking
 		public void setDate(Date date) {
 		this.date = date;
 		}
-		public String getPrice() {
+		public int getPrice() {
 		return price;
 		}
-		public void setPrice(String price) {
+		public void setPrice(int price) {
 		this.price = price;
 		}
 		public Collection<Traveler> getTravelerList() {
@@ -97,7 +61,23 @@ public class Booking
 		}
 		public void setTravelerList(Collection<Traveler> travelerList) {
 		this.travelerList = travelerList;
-	}
+		}
+		public FlightCompany getFlightCompany()
+		{
+			return flightCompany;
+		}
+		public void setFlightCompany(FlightCompany flightCompany)
+		{
+			this.flightCompany = flightCompany;
+		}
+		public int getId()
+		{
+			return id;
+		}
+		public void setId(int id)
+		{
+			this.id = id;
+		}
 
 	
 	}

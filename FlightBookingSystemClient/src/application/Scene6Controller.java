@@ -121,8 +121,8 @@ public class Scene6Controller implements Initializable {
 			stg.show();
 		}
 	}
-	static String to = Scene1Controller.toDestination;
-	static String from = Scene1Controller.fromDestination;
+	String to = Scene1Controller.toDestination;
+	String from = Scene1Controller.fromDestination;
 	Date d = new Date();
 	static LocalDate firstDate = Scene1Controller.firstDate;
 	static LocalDate lastDate = Scene1Controller.lastDate;

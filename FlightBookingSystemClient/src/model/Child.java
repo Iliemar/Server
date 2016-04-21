@@ -11,7 +11,7 @@ public class Child extends Traveler implements Serializable
 	}
 	public Child()
 	{
-		
+		super();
 	}
 	
 	public String getFirstName()

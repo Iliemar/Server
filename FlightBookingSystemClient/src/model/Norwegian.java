@@ -9,4 +9,9 @@ public class Norwegian extends FlightCompany implements Serializable {
 	public Norwegian(int id, String name, int cost) {
 		super(id, name, cost);
 	}
+	
+	public Norwegian()
+	{
+		super();
+	}
 }

@@ -4,10 +4,26 @@ public class Destination {
 
 	private String destination;
 	private int zone;
+	private Booking booking;
 
 	public Destination(String destination, int zone) {
 		this.destination = destination;
 		this.zone = zone;
+	}
+	
+	public Destination()
+	{
+		
+	}
+	
+	public Booking getBooking()
+	{
+		return booking;
+	}
+	
+	public void setBooking(Booking booking)
+	{
+		this.booking = booking;
 	}
 
 	public String getDestination() {

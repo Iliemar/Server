@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +21,9 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.Adult;
+import model.Child;
+import model.Traveler;
 
 import javax.swing.JOptionPane;
 
@@ -113,6 +118,9 @@ public class Scene3Controller implements Initializable {
 
 	public static double ExtraCost = 0; // all extra in cash
 	private static int currentPersonCounter = 1;
+	private int maxAdults = 0;
+	private int maxChildren = 0;
+	public static List<Traveler> travelerList = new ArrayList<Traveler>();
 
 	private static int TotalTravelers;
 	// price for extra items
@@ -206,8 +214,8 @@ public class Scene3Controller implements Initializable {
 		} else if (pnrFld.getText().equals("")) {
 			errorLabel.setText("Please fill in all the fields.");
 			personalnumberLabel.setStyle("-fx-text-fill:RED;");
-		} else if (pnrFld.getLength() != 10) {
-			errorLabel.setText("Please fill in YY/MM/DD-XXXX");
+		} else if (pnrFld.getLength() != 12) {
+			errorLabel.setText("Please fill in YYYY/MM/DD-XXXX");
 			personalnumberLabel.setStyle("-fx-text-fill:RED;");
 
 		} else {
@@ -261,6 +269,36 @@ public class Scene3Controller implements Initializable {
 				stg.setScene(s);
 				stg.show();
 
+			}
+			
+			int year = Integer.parseInt(pnrFld.getText().substring(0, 3));
+			if(year <= 1998)
+			{
+				if(maxAdults >= Scene1Controller.adult)
+				{
+					JOptionPane.showMessageDialog(null, "Maximum adults reached!");
+				}
+				else
+				{
+					Adult adult = new Adult(firstnameFld.getText(), lastnameFld.getText(), pnrFld.getText(), handicapFld.getText());
+					travelerList.add(adult);
+					maxAdults++;
+					System.out.println(adult.getFirstName());
+				}
+			}
+			else
+			{
+				if(maxChildren >= Scene1Controller.kids)
+				{
+					JOptionPane.showMessageDialog(null, "Maximum children reached!");
+				}
+				else
+				{
+					Child child = new Child(firstnameFld.getText(), lastnameFld.getText(), pnrFld.getText(), handicapFld.getText());
+					travelerList.add(child);
+					maxChildren++;
+					System.out.println(child.getFirstName());
+				}
 			}
 
 			currentPersonCounter += 1; // make counter +1 + update label

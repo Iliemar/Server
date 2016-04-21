@@ -7,9 +7,14 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.MediaType;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -49,6 +54,8 @@ public class Scene2Controller implements Initializable {
     private Button myTripsBtn;
     @FXML
     private Button cancelFlightBtn;
+    private Client client;
+    public static FlightCompany flightCompany;
 
 
 	@FXML
@@ -64,7 +71,8 @@ public class Scene2Controller implements Initializable {
     @FXML
     void nextActionEvent(ActionEvent event) throws IOException {
       // when the user click continue 
-        JOptionPane.showMessageDialog(null, listView.getSelectionModel().getSelectedItem());
+        flightCompany = listView.getSelectionModel().getSelectedItem();
+        System.out.println(flightCompany.getName());
         Parent p = FXMLLoader.load(getClass().getResource("/application/Scene3FXML.fxml"));
         Scene s = new Scene(p);
         Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -130,18 +138,15 @@ public class Scene2Controller implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        // creating dummy data FlightCompany
-        SAS SAS = new SAS(1, "SAS", 4500);
-        Emirates WizzAir = new Emirates(2, "WizzAir", 2500);
-        Norwegian TurkishAirlines = new Norwegian(3, "TurkishAirLines", 3500);
-
-        FlightCompanyList.add(SAS);
-        FlightCompanyList.add(WizzAir);
-        FlightCompanyList.add(TurkishAirlines);
-
-        // add observerlist FlightCompanyList to the listview
+    public void initialize(URL url, ResourceBundle rb)
+    {
+    	client = ClientBuilder.newClient();
+    	GenericType<List<FlightCompany>> flights = new GenericType<List<FlightCompany>>(){};
+    	List<FlightCompany> flightCompanies = client.target("http://localhost:8080/FlightBookingSystem/webapi/flightcompanies").request(MediaType.APPLICATION_JSON).get(flights);
+    	for(int i = 0; i < flightCompanies.size(); i++)
+    	{
+    		FlightCompanyList.add(flightCompanies.get(i));
+    	}
         listView.setItems(FlightCompanyList);
     }
 

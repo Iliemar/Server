@@ -9,4 +9,9 @@ public class SAS extends FlightCompany implements Serializable {
 	public SAS(int id, String name, int cost) {
 		super(id, name, cost);
 	}
+	
+	public SAS()
+	{
+		super();
+	}
 }

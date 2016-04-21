@@ -9,4 +9,9 @@ public class Emirates extends FlightCompany implements Serializable {
 	public Emirates(int id, String name, int cost) {
 		super(id, name, cost);
 	}
+	
+	public Emirates()
+	{
+		super();
+	}
 }

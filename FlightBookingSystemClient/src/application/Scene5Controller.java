@@ -1,6 +1,7 @@
 package application;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import java.io.IOException;
@@ -24,7 +25,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import model.Booking;
+import model.Traveler;
+
 import javax.swing.JOptionPane;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
 
 public class Scene5Controller implements Initializable {
 
@@ -85,6 +93,7 @@ public class Scene5Controller implements Initializable {
 	private int monthNumber;
 	private int yearNumber;
 	private int cscNumber;
+	private Client client;
 
 	@FXML
 	void changeSceneActionEvent(ActionEvent event) throws IOException {
@@ -174,6 +183,27 @@ public class Scene5Controller implements Initializable {
 			} else {
 				JOptionPane.showMessageDialog(null, "CardHolder: " + cardHolder + "\n" + "CardNumber: " + CardNumber
 						+ "\n" + "Card Info: " + monthNumber + "/" + yearNumber + " CSC: " + cscNumber);
+				
+				Booking booking = new Booking();
+				booking.setStartDestination(Scene1Controller.fromDestination);
+				booking.setEndDestination(Scene1Controller.toDestination);
+				booking.setFlightCompany(Scene2Controller.flightCompany);
+				for(int i = 0; i < Scene3Controller.travelerList.size(); i++)
+				{
+					booking.getTravelerList().add(Scene3Controller.travelerList.get(i));
+				}
+				System.out.println(booking.getStartDestination());
+				System.out.println(booking.getEndDestination());
+				System.out.println(booking.getFlightCompany().getName());
+				List<Traveler> list = (List<Traveler>) booking.getTravelerList();
+				for(int i = 0; i < list.size(); i++)
+				{
+					System.out.println(list.get(i).getFirstName());
+				}
+				
+				client = ClientBuilder.newClient();
+				Booking b = client.target("http://localhost:8080/FlightBookingSystem/webapi/bookings").request().post(Entity.entity(booking, MediaType.APPLICATION_JSON), Booking.class);
+				
 				Parent p = FXMLLoader.load(getClass().getResource("Scene6FXML.fxml"));
 				Scene s = new Scene(p);
 				s.setFill(Color.TRANSPARENT);

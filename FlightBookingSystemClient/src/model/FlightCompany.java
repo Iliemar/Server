@@ -1,13 +1,16 @@
 package model;
 
-public abstract class FlightCompany {
+public class FlightCompany {
 
 	public FlightCompany(int id, String name, int cost){
 		this.id = id;
 		this.name = name;
 		this.cost=cost;
 	}
-	public FlightCompany(){}
+	public FlightCompany()
+	{
+		
+	}
 	
 	private int id;
 	private String name;

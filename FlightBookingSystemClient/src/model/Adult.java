@@ -7,11 +7,6 @@ import java.io.Serializable;
 
 public class Adult extends Traveler implements Serializable
 {
-	private String firstName;
-	private String lastName;
-	private int age;
-	private long persNR;
-	private String handicap;
 	
 	public Adult(String firstName, String lastName, String persNR, String handicap)
 	{
@@ -20,7 +15,7 @@ public class Adult extends Traveler implements Serializable
 
 	public Adult()
 	{
-		
+		super();
 	}
 	
 	public String getFirstName()

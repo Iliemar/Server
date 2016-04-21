@@ -2,9 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-
-
-public abstract class Traveler implements Serializable
+public class Traveler implements Serializable
 {
 	private String firstName;
 	private String lastName;

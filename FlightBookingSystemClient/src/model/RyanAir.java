@@ -9,4 +9,9 @@ public class RyanAir extends FlightCompany implements Serializable {
 	public RyanAir(int id, String name, int cost) {
 		super(id, name, cost);
 	}
+	
+	public RyanAir()
+	{
+		super();
+	}
 }
