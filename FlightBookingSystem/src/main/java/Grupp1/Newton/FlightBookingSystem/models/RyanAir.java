@@ -11,7 +11,12 @@ public class RyanAir extends FlightCompany implements Serializable {
 
 	private static final long serialVersionUID = -2033798705313047647L;
 
-	public RyanAir(int id, String name, int cost) {
-		super(id, name, cost);
+	public RyanAir(String name, int cost) {
+		super(name, cost);
+	}
+	
+	public RyanAir()
+	{
+		super();
 	}
 }

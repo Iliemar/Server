@@ -11,7 +11,12 @@ public class SAS extends FlightCompany implements Serializable {
 	
 	private static final long serialVersionUID = 9158823721494998741L;
 
-	public SAS(int id, String name, int cost) {
-		super(id, name, cost);
+	public SAS(String name, int cost) {
+		super(name, cost);
+	}
+	
+	public SAS()
+	{
+		super();
 	}
 }

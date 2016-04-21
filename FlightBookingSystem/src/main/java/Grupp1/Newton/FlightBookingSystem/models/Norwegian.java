@@ -11,7 +11,12 @@ public class Norwegian extends FlightCompany implements Serializable {
 
 	private static final long serialVersionUID = 2389812381825670858L;
 
-	public Norwegian(int id, String name, int cost) {
-		super(id, name, cost);
+	public Norwegian(String name, int cost) {
+		super(name, cost);
+	}
+	
+	public Norwegian()
+	{
+		super();
 	}
 }

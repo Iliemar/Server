@@ -11,7 +11,12 @@ public class Emirates extends FlightCompany implements Serializable {
 
 	private static final long serialVersionUID = -7112921686054359200L;
 
-	public Emirates(int id, String name, int cost) {
-		super(id, name, cost);
+	public Emirates(String name, int cost) {
+		super(name, cost);
+	}
+	
+	public Emirates()
+	{
+		super();
 	}
 }

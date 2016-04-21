@@ -18,8 +18,7 @@ import Grupp1.Newton.FlightBookingSystem.models.Booking;
 @Path("/bookings")
 public class BookingResource
 {
-	private BookingService bookingService= new BookingService();
-	private FlightCompanyService flightCompanyService= new FlightCompanyService();
+	private BookingService bookingService = new BookingService();
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
@@ -43,12 +42,6 @@ public class BookingResource
 	{
 		return bookingService.addBooking(booking);
 	}
-	/*public FlightCompanyService getFlightCompanyService() {
-		return flightCompanyService;
-	}
-	public void setFlightCompanyService(FlightCompanyService flightCompanyService) {
-		this.flightCompanyService = flightCompanyService;
-	}*/
 }
 	
 

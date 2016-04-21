@@ -6,23 +6,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class FlightCompany
 {
-	public FlightCompany(int id, String name, int cost){
-		this.id = id;
+	public FlightCompany(String name, int cost){
 		this.name = name;
 		this.cost=cost;
 	}
-	public FlightCompany(){}
+	public FlightCompany()
+	{
+		
+	}
 	
 	@Id
 	@GeneratedValue
 	private int id;
 	private String name;
 	private int cost;
+	
+	@OneToOne()
+	private Booking booking;
 
 	public int getCost() {
 		return cost;
@@ -46,6 +52,14 @@ public class FlightCompany
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public Booking getBooking()
+	{
+		return booking;
+	}
+	public void setBooking(Booking booking)
+	{
+		this.booking = booking;
 	}
 	public String toString(){
 		return "Name of the company: " + this.name + 

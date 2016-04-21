@@ -7,11 +7,14 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -25,14 +28,14 @@ import org.hibernate.annotations.Type;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Traveler implements Serializable
 {
-	public Traveler(String firstName, String lastName, int age, long persNR, String handicap)
+	public Traveler(String firstName, String lastName, String persNR, String handicap)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.age = age;
 		this.persNR = persNR;
 		this.handicap = handicap;
 	}
+	
 	@Id
 	@GeneratedValue
 	private int id;
@@ -47,7 +50,7 @@ public abstract class Traveler implements Serializable
 	private int age;
 	
 	@Column(name = "persNR")
-	private long persNR;
+	private String persNR;
 	
 	@Column(name = "disablity")
 	private String handicap;
@@ -68,16 +71,16 @@ public abstract class Traveler implements Serializable
 	@Column(name = "extraSpace")
 	private boolean extraSpace;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
-	private Collection<Booking> bookingList = new ArrayList<Booking>();
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Booking booking;
+
 	
 	//Use if you want to create an object with no set data or attributes.
 	public Traveler()
 	{
 		
 	}
-
+	
 	public String getFirstName()
 	{
 		return firstName;
@@ -108,27 +111,28 @@ public abstract class Traveler implements Serializable
 		this.age = age;
 	}
 
-	public long getPersNR()
+	public String getPersNR()
 	{
 		return persNR;
 	}
 
-	public void setPersNR(long persNR)
+	public void setPersNR(String persNR)
 	{
 		this.persNR = persNR;
 	}
 	
-	public Collection<Booking> getBookingList()
+	public Booking getBooking()
 	{
-		return bookingList;
+		return booking;
 	}
 	
-	public void setBookingList(Collection<Booking> bookingList)
+	public void setBooking(Booking booking)
 	{
-		this.bookingList = bookingList;
+		this.booking = booking;
 	}
 
-	public int getId() {
+	public int getId()
+	{
 		return id;
 	}
 

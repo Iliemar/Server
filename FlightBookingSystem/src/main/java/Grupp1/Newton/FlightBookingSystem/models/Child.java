@@ -13,14 +13,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 public class Child extends Traveler implements Serializable
 {
-	public Child(String firstName, String lastName, int age, long persNR, String handicap)
+	public Child(String firstName, String lastName, String persNR, String handicap)
 	{
-		super(firstName, lastName, age, persNR, handicap);
+		super(firstName, lastName, persNR, handicap);
 	}
 	
 	public Child()
 	{
-		
+		super();
 	}
 	
 	public String getFirstName()
@@ -35,7 +35,7 @@ public class Child extends Traveler implements Serializable
 	{
 		return super.getAge();
 	}
-	public long getPersNR()
+	public String getPersNR()
 	{
 		return super.getPersNR();
 	}
@@ -51,7 +51,7 @@ public class Child extends Traveler implements Serializable
 	{
 		super.setAge(age);
 	}
-	public void setPersNR(long persNR)
+	public void setPersNR(String persNR)
 	{
 		super.setPersNR(persNR);
 	}

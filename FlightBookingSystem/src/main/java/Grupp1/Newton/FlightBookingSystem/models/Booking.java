@@ -12,6 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -39,15 +42,21 @@ public class Booking implements Serializable
 	@Column(name = "ticketPrice")
 	private int price;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
 	
-	public Booking(String startDestination, String endDestination, int price)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Collection<Destination> destinationList = new ArrayList<Destination>();
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private FlightCompany flightCompany;
+	
+	public Booking(FlightCompany flightCompany, String startDestination, String endDestination, int price)
 	{
 		this.startDestination = startDestination;
 		this.endDestination = endDestination;
 		this.price = price;
+		this.flightCompany = flightCompany;
 		this.date = new Date();
 	}
 	
@@ -102,5 +111,13 @@ public class Booking implements Serializable
 	public void setTravelerList(Collection<Traveler> travelerList)
 	{
 		this.travelerList = travelerList;
+	}
+	public FlightCompany getFlightCompany()
+	{
+		return flightCompany;
+	}
+	public void setFlightCompany(FlightCompany flightCompany)
+	{
+		this.flightCompany = flightCompany;
 	}
 }
