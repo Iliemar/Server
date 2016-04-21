@@ -26,7 +26,7 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "Traveler")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class Traveler implements Serializable
+public class Traveler implements Serializable
 {
 	public Traveler(String firstName, String lastName, String persNR, String handicap)
 	{

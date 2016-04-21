@@ -45,11 +45,10 @@ public class Booking implements Serializable
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Collection<Traveler> travelerList = new ArrayList<Traveler>();
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private Collection<Destination> destinationList = new ArrayList<Destination>();
-	
 	@OneToOne(cascade = CascadeType.ALL)
 	private FlightCompany flightCompany;
+	
+	//private Collection<Destination> destinationList = new ArrayList<Destination>();
 	
 	public Booking(FlightCompany flightCompany, String startDestination, String endDestination, int price)
 	{
@@ -120,4 +119,12 @@ public class Booking implements Serializable
 	{
 		this.flightCompany = flightCompany;
 	}
+
+	/*public Collection<Destination> getDestinationList() {
+		return destinationList;
+	}
+
+	public void setDestinationList(Collection<Destination> destinationList) {
+		this.destinationList = destinationList;
+	}*/
 }
