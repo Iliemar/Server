@@ -55,12 +55,11 @@
             <Button fx:id="nextBtn" layoutX="673.0" layoutY="264.0" mnemonicParsing="false" onAction="#nextActionEvent" prefHeight="25.0" prefWidth="69.0" text="Change " />
             <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="177.0" prefWidth="760.0">
               <columns>
-                <TableColumn fx:id="Company" onEditCommit="#handleEditActionCompany" prefWidth="177.0" text="Company" />
-                <TableColumn fx:id="From" onEditCommit="#handleEditActionFrom" prefWidth="106.0" text="From" />
-                  <TableColumn fx:id="To" onEditCommit="#handleEditActionTo" prefWidth="129.0" text="To" />
-                  <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="128.0" text="Date" />
-                  <TableColumn fx:id="Price" onEditCommit="#handleEditActionPrice" prefWidth="111.0" text="Price" />
-                  <TableColumn fx:id="Direct" onEditCommit="#handleEditActionDirect" prefWidth="104.0" text="Direct" />
+                <TableColumn fx:id="Id" onEditCommit="#handleEditActionId" prefWidth="103.0" text="Id" />
+                <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="139.0" text="Date" />
+                  <TableColumn fx:id="endDestination" onEditCommit="#handleEditActionEndDestination" prefWidth="170.0" text="endDestination" />
+                  <TableColumn fx:id="ticketPrice" onEditCommit="#handleEditActionTicketPrice" prefWidth="185.0" text="TicketPrice" />
+                  <TableColumn fx:id="startDestination" onEditCommit="#handleEditActionStartDestination" prefWidth="162.0" text="startDestination" />
               </columns>
             </TableView>
             <TextField fx:id="text" layoutX="105.0" layoutY="245.0" onAction="#textAction" promptText="Write your ordnummer" />

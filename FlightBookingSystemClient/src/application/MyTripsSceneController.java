@@ -27,6 +27,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.converter.IntegerStringConverter;
 import model.Booking;
 
 
@@ -42,13 +43,13 @@ public class MyTripsSceneController implements Initializable {
 	    	private Button exitBtn;
 
 	   
-	    @FXML private TableView<Booking> tableView;
-	    @FXML private TableColumn<Booking,String>Company;
-	    @FXML private TableColumn<Booking,String>From;
-	    @FXML private TableColumn<Booking,String>To;
-	    @FXML private TableColumn<Booking,java.util.Date>Date;
-	    @FXML private TableColumn<Booking,String>Price;
-	    @FXML private TableColumn<Booking,String>Direct;
+	    @FXML
+	    private TableView<Booking> tableView;
+	    @FXML private TableColumn<Booking,Integer>Id;
+	    @FXML private TableColumn<Booking,java.sql.Date>Date;
+	    @FXML private TableColumn<Booking,String>endDestination;
+	    @FXML private TableColumn<Booking,Integer>ticketPrice;
+	    @FXML private TableColumn<Booking,String>startDestination;
 	   
 
 	    @FXML
@@ -76,10 +77,7 @@ public class MyTripsSceneController implements Initializable {
 	    private Button nextBtn;
 	    
 	   
-	    public ObservableList<Booking>ChangeBookingList=FXCollections.observableArrayList(
-	            new Booking("Comp1","Malmö","Oslo","99","yes"),
-	            new Booking("Comp2","Malmö","Chicago"," 444","no"),
-	            new Booking ("Comp3","Malmö","Bucharest", "88","yes") );
+	    public ObservableList<Booking>ChangeBookingList=FXCollections.observableArrayList( );
 	    
 	    
 	    
@@ -151,77 +149,80 @@ public class MyTripsSceneController implements Initializable {
 
 	    }
 
-   
+
 	    @FXML
-	    private void handleEditActionCompany(CellEditEvent<Booking, String> t)
+	    private void handleEditActionId(CellEditEvent<Booking, Integer> t)
 	    {
-	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setCompany(t.getNewValue());
+	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setId(t.getNewValue());
 	    }
 		
 		
 		 @FXML
-	    private void handleEditActionFrom(CellEditEvent<Booking, String> t) 
+	    private void handleEditActionDate(CellEditEvent<Booking, java.sql.Date> t) 
 	    {
-	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())). setStartDestination(t.getNewValue());
+	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())). setDate(t.getNewValue());
 	    }
 		
 		
 		 @FXML
-	    private void handleEditActionTo(CellEditEvent<Booking, String> t)
+	    private void handleEditActionEndDestination(CellEditEvent<Booking, String> t)
 	    {
 	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setEndDestination(t.getNewValue());
 	    }
 		
 		
 		 @FXML
-	    private void handleEditActionDate(CellEditEvent<Booking, java.util.Date> t) 
+	    private void handleEditActionTicketPrice(CellEditEvent<Booking, Integer> t) 
 	    {
-	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDate(t.getNewValue());
+	        ((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPrice(t.getNewValue());
 	    }
 
 		@FXML
-	    private void handleEditActionPrice(CellEditEvent<Booking, String> t) 
+	    private void handleEditActionStartDestination(CellEditEvent<Booking, String> t) 
 	    {
-			((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPrice(t.getNewValue());
+			((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setStartDestination(t.getNewValue());
 		}
-		@FXML
-	    private void handleEditActionDirect(CellEditEvent<Booking, String> t) 
-	    {
-			((Booking) t.getTableView().getItems().get(t.getTablePosition().getRow())).setDirect(t.getNewValue());
-		}
+		
 		
 		
 		
 		
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb) {
-
-	        Company.setCellValueFactory(new PropertyValueFactory<Booking,String>("company"));  
-	        From.setCellValueFactory(new PropertyValueFactory<Booking,String>("from"));
-	        To.setCellValueFactory(new PropertyValueFactory<Booking,String>("to"));
-	        Date.setCellValueFactory(new PropertyValueFactory<Booking,java.util.Date>("date"));
-	        Price.setCellValueFactory(new PropertyValueFactory<Booking,String>("price"));
-	        Direct.setCellValueFactory(new PropertyValueFactory<Booking,String>("direct"));
-	      
+	    /*	
+	    	myBooking=new Booking(null, null, null, null, null,"yes");
+	    	 text.textProperty().addListener(new ChangeListener<Object>(){
+	    		    
+	    	     @Override
+	    	     public void changed(ObservableValue observable,Object oldVal,Object newVal){
+	    	    access=text.getText().equals(myBooking.getId());*/
+	    	
+	    	
+	        
+	    	Id.setCellValueFactory(new PropertyValueFactory<Booking,Integer>("id"));  
+	        Date.setCellValueFactory(new PropertyValueFactory<Booking,java.sql.Date>("date"));
+	        endDestination.setCellValueFactory(new PropertyValueFactory<Booking,String>("endDestination"));
+	        ticketPrice.setCellValueFactory(new PropertyValueFactory<Booking,Integer>("ticketPrice"));
+	       startDestination.setCellValueFactory(new PropertyValueFactory<Booking,String>("startDestination"));
+	        
 	       
 	        tableView.setItems(ChangeBookingList);
 	        
-	        Company.setCellFactory(TextFieldTableCell.forTableColumn());
-	        From.setCellFactory(TextFieldTableCell.forTableColumn());
-	        To.setCellFactory(TextFieldTableCell.forTableColumn());
-	       // Date.setCellValueFactory(TextFieldTableCell.forTableColumn());
-	        Price.setCellFactory(TextFieldTableCell.forTableColumn());
-	        Direct.setCellFactory(TextFieldTableCell.forTableColumn());
-	
+	        Id.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+	       // Date.setCellValueFactory(TextFieldTableCell.forTableColumn(new DateStringConverter()));
+	        endDestination.setCellFactory(TextFieldTableCell.forTableColumn());
+	        ticketPrice.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+	        startDestination.setCellFactory(TextFieldTableCell.forTableColumn());
 
-	        Company.setEditable(true);
-	        From.setEditable(true);
-	        To.setEditable(true);
-	        Date.setEditable(true); 
-	        Price.setEditable(true);
+	        Id.setEditable(true);
+	        Date.setEditable(true);
+	        endDestination.setEditable(true);
+	        ticketPrice.setEditable(true); 
+	        startDestination.setEditable(true);
+	        
 	        tableView.setEditable(true);
-	        Direct.setEditable(true);
-	       
+	      
+	    	    
 	     }     
 }
 

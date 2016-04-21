@@ -54,16 +54,16 @@
             <Button fx:id="backBtn" layoutX="14.0" layoutY="264.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="25.0" prefWidth="69.0" text="Back" />
             <TableView fx:id="tableView" layoutX="-4.0" layoutY="-1.0" prefHeight="177.0" prefWidth="760.0">
               <columns>
-                <TableColumn fx:id="Company" onEditCommit="#handleEditActionCompany" prefWidth="103.0" text="Company" />
-                <TableColumn fx:id="From" onEditCommit="#handleEditActionFrom" prefWidth="108.0" text="From" />
-                  <TableColumn fx:id="To" onEditCommit="#handleEditActionTo" prefWidth="99.0" text="To" />
-                  <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="193.0" text="Date" />
-                  <TableColumn fx:id="Price" onEditCommit="#handleEditActionPrice" prefWidth="145.0" text="Price" />
-                  <TableColumn fx:id="Direct" onEditCommit="#handleEditActionDirect" prefWidth="109.0" text="Direct" />
+                <TableColumn fx:id="Id" onEditCommit="#handleEditActionId" prefWidth="131.0" text="Id" />
+                <TableColumn fx:id="Date" onEditCommit="#handleEditActionDate" prefWidth="142.0" text="Date " />
+                  <TableColumn fx:id="endDestination" onEditCommit="#handleEditActionEndDestination" prefWidth="143.0" text="endDestination" />
+                  <TableColumn fx:id="ticketPrice" onEditCommit="#handleEditActionTicketPrice" prefWidth="175.0" text="TicketPrice" />
+                  <TableColumn fx:id="startDestination" onEditCommit="#handleEditActionStartDestination" prefWidth="168.0" text="tartDestination" />
               </columns>
             </TableView>
             <TextField layoutX="105.0" layoutY="245.0" promptText="Write your ordnummer" />
             <Label layoutX="105.0" layoutY="190.0" prefHeight="61.0" prefWidth="224.0" />
+            <Button fx:id="backBtn1" layoutX="620.0" layoutY="243.0" mnemonicParsing="false" onAction="#backActionEvent" prefHeight="39.0" prefWidth="110.0" text="Print" />
          </children></AnchorPane>
    </children>
 </AnchorPane>
