@@ -178,6 +178,16 @@ public class Scene4Controller implements Initializable {
 		}
 	    @Override
 	    public void initialize(URL url, ResourceBundle rb) {
+	    	for(int i = 0; i < Scene3Controller.travelerList.size(); i++)
+	        {
+	    		String firstname = Scene3Controller.travelerList.get(i).getFirstName();
+	         	String lastName = Scene3Controller.travelerList.get(i).getLastName();
+	         	String pnr = Scene3Controller.travelerList.get(i).getPersNR();
+	         	String handicap = Scene3Controller.travelerList.get(i).getHandicap();
+	         
+	         	Traveler traveler = new Traveler(firstname, lastName, pnr, handicap);
+	         	ChangeTravelerList.add(traveler);
+	        }
 	        firstName.setCellValueFactory(new PropertyValueFactory<Traveler,String>("firstName"));  
 	        lastName.setCellValueFactory(new PropertyValueFactory<Traveler,String>("lastName"));
 	        persNR.setCellValueFactory(new PropertyValueFactory<Traveler,String>("persNR"));

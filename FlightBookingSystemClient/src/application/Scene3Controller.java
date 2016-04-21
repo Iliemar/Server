@@ -257,20 +257,6 @@ public class Scene3Controller implements Initializable {
 							+ "Extra cost: " + ExtraCost);
 			// ______________________________________________
 			// After the Save !!
-
-			// Controll if all persons are filld in
-			if (currentPersonCounter == TotalTravelers) {
-				Parent p = FXMLLoader.load(getClass().getResource("Scene4FXML.fxml"));
-				Scene s = new Scene(p);
-				s.setFill(Color.TRANSPARENT);
-
-				Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-				stg.setScene(s);
-				stg.show();
-
-			}
-			
 			int year = Integer.parseInt(pnrFld.getText().substring(0, 3));
 			if(year <= 1998)
 			{
@@ -301,6 +287,18 @@ public class Scene3Controller implements Initializable {
 				}
 			}
 
+			// Controll if all persons are filld in
+			if (currentPersonCounter == TotalTravelers) {
+				Parent p = FXMLLoader.load(getClass().getResource("Scene4FXML.fxml"));
+				Scene s = new Scene(p);
+				s.setFill(Color.TRANSPARENT);
+
+				Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+				stg.setScene(s);
+				stg.show();
+
+			}
 			currentPersonCounter += 1; // make counter +1 + update label
 			currentPersonCounterLabel.setText(String.valueOf(currentPersonCounter));
 
