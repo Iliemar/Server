@@ -127,9 +127,16 @@ public class ChangeBookSceneController implements Initializable {
 
 
 	    @FXML
-	   	    void nextActionEvent(ActionEvent event) {
+	   	    void nextActionEvent(ActionEvent event) throws IOException {
 	   	    	 selectedBookning=tableView.getSelectionModel().getSelectedItem();
 	   	    	 JOptionPane.showMessageDialog(null, selectedBookning);
+	   	    	 
+	   	    	Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene2.fxml"));
+	   			Scene s = new Scene(p);
+	   			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	   			stg.setScene(s);
+	   			stg.show();
 	    }
 	    @FXML
 	    void changeSceneActionEvent(ActionEvent event) throws IOException {

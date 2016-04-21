@@ -149,7 +149,7 @@ public class ChangeBookScene2Controller implements Initializable {
 	@FXML
 	void backActionEvent(ActionEvent event) throws IOException {
 
-		Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
+		Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene.fxml"));
 		Scene s = new Scene(p);
 		Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
