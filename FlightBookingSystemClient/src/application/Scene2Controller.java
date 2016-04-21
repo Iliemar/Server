@@ -8,6 +8,9 @@ package application;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,9 +23,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import model.Emirates;
 import model.FlightCompany;
-
-import javax.swing.JOptionPane;
+import model.Norwegian;
+import model.SAS;
 
 public class Scene2Controller implements Initializable {
 
@@ -129,9 +133,9 @@ public class Scene2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // creating dummy data FlightCompany
-        FlightCompany SAS = new FlightCompany(1, "SAS", 4500);
-        FlightCompany WizzAir = new FlightCompany(1, "WizzAir", 2500);
-        FlightCompany TurkishAirlines = new FlightCompany(1, "TurkishAirLines", 3500);
+        SAS SAS = new SAS(1, "SAS", 4500);
+        Emirates WizzAir = new Emirates(2, "WizzAir", 2500);
+        Norwegian TurkishAirlines = new Norwegian(3, "TurkishAirLines", 3500);
 
         FlightCompanyList.add(SAS);
         FlightCompanyList.add(WizzAir);

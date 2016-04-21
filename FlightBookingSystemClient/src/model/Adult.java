@@ -13,9 +13,9 @@ public class Adult extends Traveler implements Serializable
 	private long persNR;
 	private String handicap;
 	
-	public Adult(String firstName, String lastName, int age, long persNR, String handicap)
+	public Adult(String firstName, String lastName, String persNR, String handicap)
 	{
-		super(firstName, lastName, age, persNR, handicap);
+		super(firstName, lastName, persNR, handicap);
 	}
 
 	public Adult()
@@ -53,12 +53,12 @@ public class Adult extends Traveler implements Serializable
 		super.setAge(age);
 	}
 
-	public long getPersNR()
+	public String getPersNR()
 	{
 		return super.getPersNR();
 	}
 
-	public void setPersNR(long persNR)
+	public void setPersNR(String persNR)
 	{
 		super.setPersNR(persNR);
 	}

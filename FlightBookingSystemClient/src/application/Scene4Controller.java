@@ -1,11 +1,18 @@
 package application;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 
+import java.awt.Label;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javax.swing.JOptionPane;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,219 +21,179 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-
+import javafx.util.Callback;
+import model.Adult;
+import model.Traveler;
+import model.Child;
 public class Scene4Controller implements Initializable {
+		
+		@FXML
+		private Label label;
+	    @FXML
+	    private HBox hbox;
+	    @FXML
+	    private Button exitBtn;
 
-	@FXML
-	private Button exitBtn;
+	   
+	    @FXML private TableView<Traveler> tableView;
+	    @FXML private TableColumn<Traveler,String>firstName;
+	    @FXML private TableColumn<Traveler,String>lastName;
+	    @FXML private TableColumn<Traveler,String>persNR;
+	    @FXML private TableColumn<Traveler,String>handicap;
+	   
 
-	@FXML
-	private Button bookBtn;
+	    @FXML
+	    private Button backBtn;
 
-	@FXML
-	private Button myTripsBtn;
+	    @FXML
+	    private Button bookBtn;
 
-	@FXML
-	private Button changeBookingBtn;
+	    @FXML
+	    private Button myTripsBtn;
 
-	@FXML
-	private AnchorPane anchorPane1;
+	    @FXML
+	    private Button changeTravelerBtn;
 
-	@FXML
-	private TextField cardHolderFld;
+	    @FXML
+	    private AnchorPane anchorPane1;
 
-	@FXML
-	private AnchorPane anchorPane2;
+	    @FXML
+	    private Button cancelFlightBtn;
 
-	@FXML
-	private TextField creditCardNumberFld;
+	    @FXML
+	    private AnchorPane anchorPane2;
 
-	@FXML
-	private ComboBox<Integer> comboBoxMonth;
-
-	@FXML
-	private HBox hbox;
-
-	@FXML
-	private HBox hBox1;
-
-	@FXML
-	private Button backBtn;
-
-	@FXML
-	private TextField cscFld;
-
-	@FXML
-	private ComboBox<Integer> comboBoxYear;
-
-	@FXML
-	private Button cancelFlightBtn;
-
-	@FXML
-	private Label errorLabel;
-
-	@FXML
-	private Button nextBtn;
-
-	// Controll value
-	private String cardHolder;
-	private long CardNumber;
-	private int monthNumber;
-	private int yearNumber;
-	private int cscNumber;
-
-	@FXML
-	void changeSceneActionEvent(ActionEvent event) throws IOException {
-		// when user clicks on one of the scene alteratives
-		if (event.getSource() == bookBtn) {
-			JOptionPane.showMessageDialog(null, "Load BookScene!");
-			Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
-			Scene s = new Scene(p);
-			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			stg.setScene(s);
-			stg.show();
-
-		} else if (event.getSource() == changeBookingBtn) {
-			JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
-			Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene.fxml"));
-			Scene s = new Scene(p);
-			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			stg.setScene(s);
-			stg.show();
-
-		} else if (event.getSource() == myTripsBtn) {
-			JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
-			Parent p = FXMLLoader.load(getClass().getResource("MyTripsScene.fxml"));
-			Scene s = new Scene(p);
-			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			stg.setScene(s);
-			stg.show();
-
-		} else if (event.getSource() == cancelFlightBtn) {
-			JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
-			Parent p = FXMLLoader.load(getClass().getResource("CancelFlightScene.fxml"));
-			Scene s = new Scene(p);
-			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-			stg.setScene(s);
-			stg.show();
-		}
-
-	}
-
-	@FXML
-	void exit(ActionEvent event) {
-		if (event.getSource() == exitBtn) {
-			System.exit(0);
-		}
-	}
-
-	@FXML
-	void nextActionEvent(ActionEvent event) throws NumberFormatException {
-
-		errorLabel.setText("");
-		if (cardHolderFld.getText().equals("")) {
-			errorLabel.setText("Please fill in Cardholder name");
-		}
-
-		if (creditCardNumberFld.getText().equals("")) {
-			errorLabel.setText("Please fill in Card number");
-		}
-
-		if (cscFld.getText().equals("")) {
-			errorLabel.setText("Please fill in CSC number");
-		}
-
-		try {
-
-			cardHolder = cardHolderFld.getText();
-			CardNumber = Long.parseLong(creditCardNumberFld.getText());
-			cscNumber = Integer.parseInt(cscFld.getText());
-			yearNumber = comboBoxYear.getValue();
-			monthNumber = comboBoxMonth.getValue();
-
-			if (CardNumber <= 99999999) {
-				errorLabel.setText("Please fill in correct Card number");
-				return;
-
-			} else if (cscNumber >= 1000) {
-				errorLabel.setText("Please fill in correct CSC/CVV number");
-				return;
-
-			} else if (cscNumber <= 99) {
-				errorLabel.setText("Please fill in correct CSC/CVV number");
-				return;
-
-			} else {
-				JOptionPane.showMessageDialog(null, "CardHolder: " + cardHolder + "\n" + "CardNumber: " + CardNumber
-						+ "\n" + "Card Info: " + monthNumber + "/" + yearNumber + " CSC: " + cscNumber);
+	    @FXML
+	    private Button nextBtn;
+	    
+	    public ObservableList<Traveler>ChangeTravelerList=FXCollections.observableArrayList(
+	    		
+	    
+	    		);
+	    
+	    
+	    
+	    @FXML
+		void exit(ActionEvent e){
+			if(e.getSource()==exitBtn){
+				System.exit(0);
 			}
-
-		} catch (NumberFormatException FormatTmp) {
-
-			errorLabel.setText("Please fill in correct information");
 		}
 
-	}
+	    @FXML
+	    void backActionEvent(ActionEvent event) throws IOException {
+	    	  if (event.getSource() == backBtn) {
+		            JOptionPane.showMessageDialog(null, "Back to Traveler!");
+		            Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
+		            Scene s = new Scene(p);
+		            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-	@FXML
-	void backActionEvent(ActionEvent event) throws IOException {
-		if (event.getSource() == backBtn) {
-			// when user clicks back
-			Parent p = FXMLLoader.load(getClass().getResource("Scene3FXML.fxml"));
-			Scene s = new Scene(p);
-			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		            stg.setScene(s);
+		            stg.show();
+	    	  }
+	    }
 
-			stg.setScene(s);
-			stg.show();
+	    @FXML
+	    void nextActionEvent(ActionEvent event) throws IOException {
+	    	if (event.getSource() == nextBtn) {
+	            JOptionPane.showMessageDialog(null, "Travelers confirmed, heading to VISA-payment!");
+	            Parent p = FXMLLoader.load(getClass().getResource("Scene5FXML.fxml"));
+	            Scene s = new Scene(p);
+	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	            stg.setScene(s);
+	            stg.show();
+	    	}
+	    }
+	    @FXML
+	    void changeSceneActionEvent(ActionEvent event) throws IOException {
+	        // when user clicks on one of the scene alteratives
+	        if (event.getSource() == bookBtn) {
+	            JOptionPane.showMessageDialog(null, "Load BookScene!");
+	            Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
+	            Scene s = new Scene(p);
+	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	            stg.setScene(s);
+	            stg.show();
+
+
+	        } else if (event.getSource() == changeTravelerBtn) {
+	            JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
+	            Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene.fxml"));
+	            Scene s = new Scene(p);
+	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	            stg.setScene(s);
+	            stg.show();
+
+	        } else if (event.getSource() == myTripsBtn) {
+	            JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
+	            Parent p = FXMLLoader.load(getClass().getResource("MyTripsScene.fxml"));
+	            Scene s = new Scene(p);
+	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	            stg.setScene(s);
+	            stg.show();
+
+
+	        } else if (event.getSource() == cancelFlightBtn) {
+	            JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
+	            Parent p = FXMLLoader.load(getClass().getResource("CancelFlightScene.fxml"));
+	            Scene s = new Scene(p);
+	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+	            stg.setScene(s);
+	            stg.show();
+	        }
+	    }
+	    @FXML
+	    private void handleEditActionFirstName(CellEditEvent<Traveler, String> t)
+	    {
+	        ((Traveler) t.getTableView().getItems().get(t.getTablePosition().getRow())).setFirstName(t.getNewValue());
+	    }
+		 @FXML
+	    private void handleEditActionLastName(CellEditEvent<Traveler, String> t) 
+	    {
+	        ((Traveler) t.getTableView().getItems().get(t.getTablePosition().getRow())).setLastName(t.getNewValue());
+	    }
+		 @FXML
+	    private void handleEditActionPersNR(CellEditEvent<Traveler, String> t)
+	    {
+	        ((Traveler) t.getTableView().getItems().get(t.getTablePosition().getRow())).setPersNR(t.getNewValue());
+	    }
+		@FXML
+	    private void handleEditActionHandicap(CellEditEvent<Traveler, String> t) 
+	    {
+			((Traveler) t.getTableView().getItems().get(t.getTablePosition().getRow())).setHandicap(t.getNewValue());
 		}
-	}
-
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		// hide labels and field
-		errorLabel.setText("");
-		creditCardNumberFld.clear();
-		cardHolderFld.clear();
-
-		// ComboBox Year
-		comboBoxYear.getItems().add(2016);
-		comboBoxYear.getItems().add(2017);
-		comboBoxYear.getItems().add(2018);
-		comboBoxYear.getItems().add(2019);
-		comboBoxYear.getItems().add(2020);
-		comboBoxYear.getItems().add(2021);
-		comboBoxYear.getItems().add(2022);
-		comboBoxYear.getItems().add(2023);
-		comboBoxYear.setValue(2016); // Default
-
-		// Combobox Month
-		comboBoxMonth.getItems().add(1);
-		comboBoxMonth.getItems().add(2);
-		comboBoxMonth.getItems().add(3);
-		comboBoxMonth.getItems().add(4);
-		comboBoxMonth.getItems().add(5);
-		comboBoxMonth.getItems().add(6);
-		comboBoxMonth.getItems().add(7);
-		comboBoxMonth.getItems().add(8);
-		comboBoxMonth.getItems().add(9);
-		comboBoxMonth.getItems().add(10);
-		comboBoxMonth.getItems().add(11);
-		comboBoxMonth.getItems().add(12);
-		comboBoxMonth.setValue(01); // Default
-
-	}
+	    @Override
+	    public void initialize(URL url, ResourceBundle rb) {
+	        firstName.setCellValueFactory(new PropertyValueFactory<Traveler,String>("firstName"));  
+	        lastName.setCellValueFactory(new PropertyValueFactory<Traveler,String>("lastName"));
+	        persNR.setCellValueFactory(new PropertyValueFactory<Traveler,String>("persNR"));
+	        handicap.setCellValueFactory(new PropertyValueFactory<Traveler,String>("handicap"));
+	     
+	        tableView.setItems(ChangeTravelerList);
+	        
+	        firstName.setCellFactory(TextFieldTableCell.forTableColumn());
+	        lastName.setCellFactory(TextFieldTableCell.forTableColumn());
+	        persNR.setCellFactory(TextFieldTableCell.forTableColumn());
+	        handicap.setCellFactory(TextFieldTableCell.forTableColumn());
+	
+	        firstName.setEditable(true);
+	        lastName.setEditable(true);
+	        persNR.setEditable(true);
+	        handicap.setEditable(true); 
+	        tableView.setEditable(true);
+	     }     
 }

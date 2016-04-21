@@ -58,6 +58,7 @@ public class Scene1Controller implements Initializable {
 
 	@FXML
 	private ComboBox<String> fromComboBox;
+	static String fromDestination;
 
 	@FXML
 	private ComboBox<String> ticketClassComboBox;
@@ -67,6 +68,7 @@ public class Scene1Controller implements Initializable {
 
 	@FXML
 	private ComboBox<String> toComboBox;
+	static String toDestination;
 
 	@FXML
 	private Button minusAdultBtn;
@@ -91,9 +93,10 @@ public class Scene1Controller implements Initializable {
 
 	@FXML
 	private Button exitBtn;
-
-	private static String fromLocation;
-	private static String toLocation;
+	
+	
+	public static LocalDate firstDate;
+	public static LocalDate lastDate;
 	public static int adult = 0; // order counter
 	public static int kids = 0;
 	private static int maxbook = 5; // max bookings
@@ -144,6 +147,9 @@ public class Scene1Controller implements Initializable {
 	@FXML
 	void searchActionEvent(ActionEvent event) throws IOException {
 		// when user clicks on Search
+		fromDestination = fromComboBox.getValue();
+		toDestination = toComboBox.getValue();
+		
 		if (event.getSource() == searchBtn) {
 			errorDestinationLabel.setText(""); // hide error label
 
@@ -256,17 +262,16 @@ public class Scene1Controller implements Initializable {
 		datePicker.setValue(LocalDate.now());
 		datePicker.setOnAction(event -> {
 			LocalDate date = datePicker.getValue();
-			// JOptionPane.showMessageDialog(null, date);
-
+			firstDate = datePicker.getValue();
 		});
-
+		
 		// create Calendar2 for HomeTrip
 		DatePicker datePicker2 = new DatePicker();
 		datePicker2.setVisible(false); // Hide at start
 		datePicker2.setValue(LocalDate.now());
 		datePicker2.setOnAction(event -> {
 			LocalDate date = datePicker2.getValue();
-			// JOptionPane.showMessageDialog(null, "Calendar 2 " + date);
+			lastDate = datePicker2.getValue();
 		});
 
 		// add calendars to the boxes

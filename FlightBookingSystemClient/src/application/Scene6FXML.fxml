@@ -95,6 +95,11 @@
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Label>
+            <Label fx:id="dateLbl2" layoutX="289.0" layoutY="58.0" text="Date">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </children>
 </AnchorPane>

@@ -1,6 +1,6 @@
 package model;
 
-public class FlightCompany {
+public abstract class FlightCompany {
 
 	public FlightCompany(int id, String name, int cost){
 		this.id = id;

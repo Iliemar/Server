@@ -9,14 +9,13 @@ public abstract class Traveler implements Serializable
 	private String firstName;
 	private String lastName;
 	private int age;
-	private long persNR;
+	private String persNR;
 	private String handicap;
 	
-	public Traveler(String firstName, String lastName, int age, long persNR, String handicap)
+	public Traveler(String firstName, String lastName, String persNR, String handicap)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.age = age;
 		this.persNR = persNR;
 		this.handicap = handicap;
 	}
@@ -65,12 +64,12 @@ public abstract class Traveler implements Serializable
 		this.age = age;
 	}
 
-	public long getPersNR()
+	public String getPersNR()
 	{
 		return persNR;
 	}
 
-	public void setPersNR(long persNR)
+	public void setPersNR(String persNR)
 	{
 		this.persNR = persNR;
 	}

@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -52,6 +53,8 @@ public class Scene6Controller implements Initializable {
 	private Label flightLbl;
 	@FXML
 	private Label dateLbl;
+	@FXML
+	private Label dateLbl2;
 	@FXML
 	private Label amountLbl;
 	@FXML
@@ -121,12 +124,15 @@ public class Scene6Controller implements Initializable {
 	static String to = Scene1Controller.toDestination;
 	static String from = Scene1Controller.fromDestination;
 	Date d = new Date();
+	static LocalDate firstDate = Scene1Controller.firstDate;
+	static LocalDate lastDate = Scene1Controller.lastDate;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		fromLbl.setText("From: " + to);
-		toLbl.setText("To: " + from);
-		dateLbl.setText("Date: " + d);
+		fromLbl.setText("From: " + from + " to: " + to);
+		toLbl.setText("Return: " + to + " to: " + from);
+		dateLbl.setText("Date: " + firstDate);
+		dateLbl2.setText("Return date: " + lastDate);
 		amountLbl.setText("Amount of persons traveling: " + (Scene1Controller.adult + Scene1Controller.kids) 
 				+ '\n' + "Number of adults: " + Scene1Controller.adult + '\n' + "Number of kids: " + Scene1Controller.kids);
 	}

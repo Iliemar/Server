@@ -252,7 +252,7 @@ public class Scene3Controller implements Initializable {
 
 			// Controll if all persons are filld in
 			if (currentPersonCounter == TotalTravelers) {
-				Parent p = FXMLLoader.load(getClass().getResource("Scene4.fxml"));
+				Parent p = FXMLLoader.load(getClass().getResource("Scene4FXML.fxml"));
 				Scene s = new Scene(p);
 				s.setFill(Color.TRANSPARENT);
 
