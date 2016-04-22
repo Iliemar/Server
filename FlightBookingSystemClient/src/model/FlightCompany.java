@@ -39,4 +39,9 @@ public class FlightCompany {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public String toString()
+	{
+		return "Flightcompany: " + this.name + " Price: " + this.cost;
+	}
 }

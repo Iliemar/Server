@@ -24,6 +24,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import model.Booking;
 import model.Destination;
@@ -106,36 +107,40 @@ public class Scene1Controller implements Initializable {
 	void changeSceneActionEvent(ActionEvent event) throws IOException {
 		// when user clicks on one of the scene alteratives
 		if (event.getSource() == bookBtn) {
-			JOptionPane.showMessageDialog(null, "Load BookScene!");
+			//JOptionPane.showMessageDialog(null, "Load BookScene!");
 			Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
 			Scene s = new Scene(p);
+			s.setFill(Color.TRANSPARENT);
 			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 			stg.setScene(s);
 			stg.show();
 
 		} else if (event.getSource() == changeBookingBtn) {
-			JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
+			//JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
 			Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene.fxml"));
 			Scene s = new Scene(p);
+			s.setFill(Color.TRANSPARENT);
 			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 			stg.setScene(s);
 			stg.show();
 
 		} else if (event.getSource() == myTripsBtn) {
-			JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
+			//JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
 			Parent p = FXMLLoader.load(getClass().getResource("MyTripsScene.fxml"));
 			Scene s = new Scene(p);
+			s.setFill(Color.TRANSPARENT);
 			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 			stg.setScene(s);
 			stg.show();
 
 		} else if (event.getSource() == cancelFlightBtn) {
-			JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
+			//JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
 			Parent p = FXMLLoader.load(getClass().getResource("CancelFlightScene.fxml"));
 			Scene s = new Scene(p);
+			s.setFill(Color.TRANSPARENT);
 			Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 			stg.setScene(s);
@@ -168,6 +173,7 @@ public class Scene1Controller implements Initializable {
 			} else {
 				Parent p = FXMLLoader.load(getClass().getResource("Scene2FXML.fxml"));
 				Scene s = new Scene(p);
+				s.setFill(Color.TRANSPARENT);
 				Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 				stg.setScene(s);

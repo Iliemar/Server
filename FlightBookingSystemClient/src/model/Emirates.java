@@ -14,4 +14,9 @@ public class Emirates extends FlightCompany implements Serializable {
 	{
 		super();
 	}
+	
+	public String toString()
+	{
+		return super.toString();
+	}
 }

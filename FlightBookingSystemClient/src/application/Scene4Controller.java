@@ -29,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import model.Adult;
@@ -92,9 +93,10 @@ public class Scene4Controller implements Initializable {
 	    @FXML
 	    void backActionEvent(ActionEvent event) throws IOException {
 	    	  if (event.getSource() == backBtn) {
-		            JOptionPane.showMessageDialog(null, "Back to Traveler!");
+	    		  //JOptionPane.showMessageDialog(null, "Back to Traveler!");
 		            Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
 		            Scene s = new Scene(p);
+		            s.setFill(Color.TRANSPARENT);
 		            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 		            stg.setScene(s);
@@ -105,9 +107,10 @@ public class Scene4Controller implements Initializable {
 	    @FXML
 	    void nextActionEvent(ActionEvent event) throws IOException {
 	    	if (event.getSource() == nextBtn) {
-	            JOptionPane.showMessageDialog(null, "Travelers confirmed, heading to VISA-payment!");
+	    		//JOptionPane.showMessageDialog(null, "Travelers confirmed, heading to VISA-payment!");
 	            Parent p = FXMLLoader.load(getClass().getResource("Scene5FXML.fxml"));
 	            Scene s = new Scene(p);
+	            s.setFill(Color.TRANSPARENT);
 	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 	            stg.setScene(s);
@@ -118,9 +121,10 @@ public class Scene4Controller implements Initializable {
 	    void changeSceneActionEvent(ActionEvent event) throws IOException {
 	        // when user clicks on one of the scene alteratives
 	        if (event.getSource() == bookBtn) {
-	            JOptionPane.showMessageDialog(null, "Load BookScene!");
+	            //JOptionPane.showMessageDialog(null, "Load BookScene!");
 	            Parent p = FXMLLoader.load(getClass().getResource("Scene1FXML.fxml"));
 	            Scene s = new Scene(p);
+	            s.setFill(Color.TRANSPARENT);
 	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 	            stg.setScene(s);
@@ -128,18 +132,20 @@ public class Scene4Controller implements Initializable {
 
 
 	        } else if (event.getSource() == changeTravelerBtn) {
-	            JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
+	            //JOptionPane.showMessageDialog(null, "Load ChangeBookScene!");
 	            Parent p = FXMLLoader.load(getClass().getResource("ChangeBookScene.fxml"));
 	            Scene s = new Scene(p);
+	            s.setFill(Color.TRANSPARENT);
 	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 	            stg.setScene(s);
 	            stg.show();
 
 	        } else if (event.getSource() == myTripsBtn) {
-	            JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
+	            //JOptionPane.showMessageDialog(null, "Load MyTripsScene!");
 	            Parent p = FXMLLoader.load(getClass().getResource("MyTripsScene.fxml"));
 	            Scene s = new Scene(p);
+	            s.setFill(Color.TRANSPARENT);
 	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 	            stg.setScene(s);
@@ -147,9 +153,10 @@ public class Scene4Controller implements Initializable {
 
 
 	        } else if (event.getSource() == cancelFlightBtn) {
-	            JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
+	            //JOptionPane.showMessageDialog(null, "Load Cancel Flight Scene!");
 	            Parent p = FXMLLoader.load(getClass().getResource("CancelFlightScene.fxml"));
 	            Scene s = new Scene(p);
+	            s.setFill(Color.TRANSPARENT);
 	            Stage stg = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
 	            stg.setScene(s);

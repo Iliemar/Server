@@ -19,29 +19,18 @@ public class HibernateDemo {
 	private static Session session;
 	public static void main(String[] args)
 	{
-		Booking b = new Booking();
-		Adult adult = new Adult("Kevine", "Nemec", "19940617", "Inget");
-		Child child = new Child("Mergime", "Zahiti", "19940215", "Inget");
-		SAS sas = new SAS("Budget", 350);
-		Emirates emirates = new Emirates("Premium", 450);
-		Norwegian norwegian = new Norwegian("Suger", 200);
-		RyanAir ryanair = new RyanAir("Värdelöst", 150);
-		String start = "Malmo";
-		String stop = "Stockholmn";
-		
-		b.setStartDestination(start);
-		b.setEndDestination(stop);
-		b.setFlightCompany(sas);
-		b.setFlightCompany(emirates);
-		b.setFlightCompany(norwegian);
-		b.setFlightCompany(ryanair);
-		b.getTravelerList().add(adult);
-		b.getTravelerList().add(child);
+		SAS sas = new SAS("SAS", 350);
+		Emirates emirates = new Emirates("Emirates", 450);
+		Norwegian norwegian = new Norwegian("Norwegian-Air", 200);
+		RyanAir ryanair = new RyanAir("Ryan-Air", 150);
 		
 		sessionFactory = HibernateUtil.getSessionFactory();
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-		session.save(b);
+		session.save(sas);
+		session.save(emirates);
+		session.save(norwegian);
+		session.save(ryanair);
 		session.getTransaction().commit();
 		session.close();
 	}

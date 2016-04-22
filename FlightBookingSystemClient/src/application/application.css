@@ -70,12 +70,10 @@
 }
 
 #backBtn{
--fx-background-color: 
-        linear-gradient(#ffd65b, #e68400),
-        linear-gradient(#ffef84, #f2ba44),
+	-fx-background-color: 
+	
         linear-gradient(#ffea6a, #efaa22),
-        linear-gradient(#ffe657 0.0%, #f8c202 50.0%, #eea10b 100.0%),
-        linear-gradient(from 0.0% 0.0% to 15.0% 50.0%, rgba(255.0,255.0,255.0,0.9), rgba(255.0,255.0,255.0,0.0));
+        radial-gradient(center 50.0% -40.0%, radius 200.0%, #f8c202 45.0%, #eea10b 50.0%);
     -fx-background-radius: 30.0;
     -fx-background-insets: 0.0,1.0,2.0,3.0,0.0;
     -fx-text-fill: #654b00;
